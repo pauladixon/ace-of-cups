@@ -2,6 +2,7 @@
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  margin: auto;
 }
 *, *:before, *:after {
   -webkit-box-sizing: inherit;
@@ -32,6 +33,7 @@ body {
 }
 
 .main {
+  margin-top: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,6 +43,7 @@ body {
 
 .intro {
   width: 300px;
+  margin-bottom: 50px;
 }
 
 .go {
@@ -53,10 +56,96 @@ body {
   font-size: 16px;
   font-family: Futura;
 
+
   &:hover, &:focus {
     cursor: pointer;
     background-color: white;
     color: black;
     border: 1px solid black;
   }
+}
+
+.nav-container {
+  display: inline-block;
+  position: relative;
+}
+
+@mixin styling() {
+  background-color: white;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.button {
+  @include styling();
+  padding: 0px 30px 10px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  border: 0;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  outline: 0;
+  font-weight: bolder;
+  font-size: 12px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.dropdown {
+  margin-top: 10px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 200px;
+  background-color: white;
+  z-index: 1000;
+  border: 1px solid black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-item {
+  padding: 20px 15px;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.list-item:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.nth {
+  border-top: 1px solid black;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 225px;
 }

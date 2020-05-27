@@ -3,9 +3,9 @@ import onClickOutside from 'react-onclickoutside'
 import './Dropdown.scss'
 
 
-function Dropdown({ title }){
+function Dropdown(){
     const items = [
-        { id: 1, value: 'Home'  },
+        { id: 1, value: 'Home' },
         { id: 2, value: 'Journal Entries' },
         { id: 3, value: 'Buy the Deck' },
         { id: 4, value: 'Contact' },
@@ -25,13 +25,6 @@ function Dropdown({ title }){
         setSelection([ ...selectionAfterRemoval])
     }
 
-    function isItemInSelection(item) {
-        if (selection.some(current => current.id === item.id)) {
-            return true
-        }
-        return false
-    }
-
     return (
         <div className='dd-wrapper'>
             <div 
@@ -42,7 +35,7 @@ function Dropdown({ title }){
                 onClick={() => toggle(!open)}
             >
                 <div className='dd-header__title'>
-                    <p className='dd-header__title--bold'>{title}</p>
+                    <p className='dd-header__title--bold'>___ ___ ___</p>
                 </div>
             </div>
             {open && (
@@ -51,7 +44,6 @@ function Dropdown({ title }){
                         <li className='dd-list-item' key={item.id}>
                             <button type='button' onClick={() => handleOnClick(item)}>
                                 <span>{item.value}</span>
-                                <span>{isItemInSelection(item)}</span>
                             </button>
                         </li>
                     ))}
