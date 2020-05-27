@@ -1,0 +1,62 @@
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  margin: 20px 0;
+  padding: 0;
+  line-height: 1;
+  font-size: 16px;
+  color: black;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Futura, sans-serif;
+}
+
+.container {
+  max-width: 1140px;
+  width: 100%;
+  margin: auto;
+  padding: 0 20px;
+}
+
+*:focus {
+  outline: none;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.intro {
+  width: 300px;
+}
+
+.go {
+  border-radius: 4px;
+  color: white;
+  display: flex;
+  background-color: black;
+  text-align: center;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-family: Futura;
+
+  &:hover, &:focus {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+  }
+}
