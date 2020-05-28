@@ -8,11 +8,13 @@ import LoginPage from '../LoginPage/LoginPage'
 import ContactPage from '../ContactPage/ContactPage'
 import JournalPage from '../JournalPage/JournalPage'
 import ReadingPage from '../ReadingPage/ReadingPage'
+import userService from '../../utils/userService'
 
 class App extends React.Component {
   navigation = React.createRef()
   state = {
     open: false,
+    user: userService.getUser()
   }
 
   handleButtonClick = () => {
