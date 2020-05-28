@@ -14,7 +14,7 @@ require('./config/database')
 app.use(logger('dev'))
 app.use(express.json())
 
-app.use('/api/user', require('./routes/api/users'))
+app.use('/api/users', require('./routes/api/users'))
 
 
 app.get('/*', function(req, res) {
