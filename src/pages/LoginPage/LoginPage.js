@@ -22,20 +22,30 @@ class LoginPage extends Component {
             <div>
                 <header>Log In</header>
                 <form onSubmit={this.handleSubmit}>
-                    <div>
+                    <div className='form login'>
                         <div>
-                            <input type='email' placeholder='Email' value={this.state.email} name='email' onChange={this.handleChange}/>
+                            <input 
+                                className='form-line' 
+                                type='email' 
+                                placeholder='Email' 
+                                value={this.state.email} 
+                                name='email' 
+                                onChange={this.handleChange}
+                            />
                         </div>
-                    </div>
-                    <div>
                         <div>
-                            <input type='password' placeholder='Password' value={this.state.pw} name='pw' onChange={this.handleChange}/>
+                            <input 
+                                className='form-line' 
+                                type='password' 
+                                placeholder='Password' 
+                                value={this.state.pw} 
+                                name='pw' 
+                                onChange={this.handleChange}
+                            />
                         </div>
-                    </div>
-                    <div>
-                        <div>
-                            <button>Log In</button>
+                        <div className='form-links'>
                             <Link to='/'>Cancel</Link>
+                            <button>Log In</button>
                         </div>
                     </div>
                 </form>

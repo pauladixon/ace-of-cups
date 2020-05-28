@@ -1,0 +1,42 @@
+.form {
+    margin: 30px;
+}
+
+.form-line {
+    padding: 10px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    color: black;
+    font-size: 14px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-family: Futura;
+}
+
+.form-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 12px;
+}
+
+button {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    font-family: Futura;
+    font-size: 12px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+  }

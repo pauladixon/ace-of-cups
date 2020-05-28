@@ -1,32 +1,31 @@
-.main {
-    margin-top: 100px;
+.home {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
-  }
   
-  .intro {
-    width: 300px;
-    margin-bottom: 50px;
-  }
-  
-  .go {
-    border-radius: 4px;
-    color: white;
-    display: flex;
-    background-color: black;
-    text-align: center;
-    padding: 12px 20px;
-    font-size: 16px;
-    font-family: Futura;
-  
-  
-    &:hover, &:focus {
-      cursor: pointer;
-      background-color: white;
-      color: black;
-      border: 1px solid black;
+    .intro {
+        width: 300px;
+        margin-bottom: 50px;
     }
-  }
+  
+    .go {
+        border-radius: 4px;
+        color: white;
+        display: flex;
+        background-color: black;
+        text-align: center;
+        padding: 12px 20px;
+        font-size: 16px;
+        font-family: Futura;
+  
+  
+        &:hover, &:focus {
+        cursor: pointer;
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+        }
+    }
+}

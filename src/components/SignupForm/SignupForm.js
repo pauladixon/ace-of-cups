@@ -37,30 +37,42 @@ class SignupForm extends Component {
             <div>
                 <header>Sign Up</header>
                 <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <div>
-                            <input type='text' placeholder='Name' value={this.state.name} name='name' onChange={this.handleChange} />
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <input type='email' placeholder='Email' value={this.state.email} name='email' onChange={this.handleChange} />
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <input type='password' placeholder='Password' value={this.state.password} name='password' onChange={this.handleChange} />
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <input type='password' placeholder='Confirm Password' value={this.state.passwordConf} name='passwordConf' onChange={this.handleChange} />
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <button disabled={this.isFormInvalid()}>Sign Up</button>
+                    <div className='form signup'>
+                        <input 
+                            className='form-line' 
+                            type='text' 
+                            placeholder='Name' 
+                            value={this.state.name} 
+                            name='name' 
+                            onChange={this.handleChange} 
+                        />
+                        <input 
+                            className='form-line' 
+                            type='email' 
+                            placeholder='Email' 
+                            value={this.state.email} 
+                            name='email' 
+                            onChange={this.handleChange} 
+                        />
+                        <input 
+                            className='form-line' 
+                            type='password' 
+                            placeholder='Password' 
+                            value={this.state.password} 
+                            name='password' 
+                            onChange={this.handleChange} 
+                        />
+                        <input 
+                            className='form-line' 
+                            type='password' 
+                            placeholder='Confirm Password' 
+                            value={this.state.passwordConf} 
+                            name='passwordConf' 
+                            onChange={this.handleChange}
+                        />
+                        <div className='form-links' >
                             <Link to='/'>Cancel</Link>
+                            <button disabled={this.isFormInvalid()}>Sign Up</button>
                         </div>
                     </div>
                 </form>

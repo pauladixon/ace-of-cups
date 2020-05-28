@@ -52,7 +52,6 @@ class App extends React.Component {
           >
             ____ ____ ____
           </button>
-          <Switch>
             {this.state.open && (
               <div class='dropdown'>
                 <ul className='list' onClick={this.handleButtonClick}>
@@ -80,6 +79,9 @@ class App extends React.Component {
                 </ul>
               </div>
             )}
+        </div>
+        <div className='body'>
+          <Switch>
             <Route exact path='/' render={() =>
               <HomePage/>
             }/>
