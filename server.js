@@ -14,6 +14,9 @@ require('./config/database')
 app.use(logger('dev'))
 app.use(express.json())
 
+app.use('/api/user', require('./routes/api/users'))
+
+
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })

@@ -12,7 +12,7 @@ async function signup(req, res) {
     try {
         await user.save()
         const token = createJWT(user)
-        res.json{{ token }}
+        res.json({ token })
     } catch (err) {
         res.status(400).json(err)
     }

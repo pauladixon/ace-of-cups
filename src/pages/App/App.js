@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch, Link } from 'react-router-dom'
+import { Route, Switch, Link, Redirect } from 'react-router-dom'
 import './App.scss'
 import Title from '../../components/Title/Title'
 import SignupPage from '../SignupPage/SignupPage'
@@ -31,6 +31,15 @@ class App extends React.Component {
         open: false,
       })
     }
+  }
+
+  handleLogout = () => {
+    userService.logout()
+    this.setState({ user: null })
+  }
+
+  handleSignupOrLogin = () => {
+    this.setState({ user: userService.getUser() })
   }
 
   componentDidMount() {
@@ -69,15 +78,22 @@ class App extends React.Component {
                   <Link to='/contact'>
                     <li className='list-item nth'>Contact Us</li>
                   </Link>
-                  <Link to='/login'>
-                    <li  className='list-item nth'>Login</li>
-                  </Link>
-                  <Link to='/signup'>
-                    <li  className='list-item nth'>Sign Up</li>
-                  </Link>
-                  <Link>
-                    <li className='list-item nth'>Logout</li>
-                  </Link>
+                  {this.state.user ? 
+                    <>
+                      <Link to='' onClick={this.handleLogout}>
+                        <li className='list-item nth'>Logout</li>
+                      </Link>
+                    </>
+                    :
+                    <>
+                      <Link to='/login'>
+                        <li  className='list-item nth'>Login</li>
+                      </Link>
+                      <Link to='/signup'>
+                        <li  className='list-item nth'>Sign Up</li>
+                      </Link>
+                    </>
+                  }
                 </ul>
               </div>
             )}
@@ -91,7 +107,10 @@ class App extends React.Component {
               <ReadingPage/>
             }/>
             <Route exact path='/journal' render={() =>
-              <JournalPage/>
+              userService.getUser() ?
+                <JournalPage/>
+              :
+              <Redirect to='/login'/>
             }/>
             <Route path='/deck' component={() => {
               window.location.href = 'https://www.smallspells.com/tarot-2'
@@ -100,11 +119,17 @@ class App extends React.Component {
             <Route exact path='/contact' render={() =>
               <ContactPage/>
             }/>
-            <Route exact path='/login' render={() =>
-              <LoginPage/>
+            <Route exact path='/login' render={({ history }) =>
+              <LoginPage
+                history={history}
+                handleSignupOrLogin={this.handleSignupOrLogin}
+              />
             }/>
-            <Route exact path='/signup' render={() =>
-              <SignupPage/>
+            <Route exact path='/signup' render={({ history }) =>
+              <SignupPage
+                history={history}
+                handleSignupOrLogin={this.handleSignupOrLogin}
+              />
             }/>
           </Switch>
         </div>
