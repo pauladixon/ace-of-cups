@@ -1,7 +1,8 @@
 import React from 'react'
 import Entry from '../../components/Entry/Entry'
+import './JournalPage.scss'
 
-function JournalPage (props) {
+function JournalPage(props) {
     
     if(props.entries.length) {
         return (
@@ -18,14 +19,14 @@ function JournalPage (props) {
                         </tr>
                     </thead>
                     <tbody>
-                            {props.entries.map(entry =>
-                                <Entry
-                                    entry={entry}
-                                    key={entry._id}
-                                    user={props.user}
-                                    handleDeleteEntry={props.handleDeleteEntry}
-                                />
-                            )}
+                        {props.entries.map(entry =>
+                            <Entry
+                                entry={entry}
+                                key={entry._id}
+                                user={props.user}
+                                handleDeleteEntry={props.handleDeleteEntry}
+                            />
+                        )}
                     </tbody>
                 </table>
             </div>

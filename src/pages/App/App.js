@@ -73,7 +73,7 @@ class App extends React.Component {
     document.removeEventListener('mousedown', this.handleClickOutside)
   }
 
-  async componentWillMount() {
+  async componentDidlMount() {
     const entries = await entriesAPI.index()
     this.setState({ entries })
   }
@@ -93,7 +93,7 @@ class App extends React.Component {
             ____ ____ ____
           </button>
             {this.state.open && (
-              <div class='dropdown'>
+              <div className='dropdown'>
                 <ul className='list' onClick={this.handleButtonClick}>
                   <Link to='/'>
                     <li className='list-item'>Pull Cards</li>
