@@ -58,7 +58,7 @@ class App extends React.Component {
         <div className="nav-container" ref={this.navigation}>
           <button 
             type="button" 
-            class="button" 
+            className="button" 
             onClick={this.handleButtonClick}
           >
             ____ ____ ____
