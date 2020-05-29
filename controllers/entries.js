@@ -2,11 +2,12 @@ let Entry = require('../models/entry')
 
 module.exports = {
     create,
-    journalEntries
+    journalEntries,
+    delete: deleteOne
 }
 
 async function create(req, res) {
-    console.log('user: ', req.user)
+    req.body.user = req.user._id
     try {
         await Entry.create(req.body)
         journalEntries(req, res)
@@ -16,7 +17,13 @@ async function create(req, res) {
 }
 
 async function journalEntries(req, res) {
-    const entries = await Entry.find({})
-        .sort({date: 1})
+    req.body.user = req.user._id
+    const entries = await Entry.find({user: req.user._id})
     res.json(entries)
+}
+
+async function deleteOne(req, res) {
+    req.body.user = req.user._id
+    const deletedEntry = await Entry.findByIdAndRemove(req.params.id)
+    res.status(200).json(deletedEntry)
 }

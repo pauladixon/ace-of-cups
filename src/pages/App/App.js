@@ -8,7 +8,8 @@ import LoginPage from '../LoginPage/LoginPage'
 import ContactPage from '../ContactPage/ContactPage'
 import JournalPage from '../JournalPage/JournalPage'
 import ReadingPage from '../ReadingPage/ReadingPage'
-import entriesService from '../../utils/entriesService'
+import AddEntryPage from '../AddEntryPage/AddEntryPage'
+import * as entriesAPI from '../../utils/entriesService'
 import userService from '../../utils/userService'
 
 class App extends React.Component {
@@ -19,6 +20,7 @@ class App extends React.Component {
     user: userService.getUser()
   }
 
+  // dropdown //
   handleButtonClick = () => {
     this.setState(state => {
       return {
@@ -34,10 +36,8 @@ class App extends React.Component {
       })
     }
   }
-
-  handleUpdateEntries = (entries) => {
-    this.setState({ entries })
-  }
+  
+  // jwt token auth //
 
   handleLogout = () => {
     userService.logout()
@@ -48,6 +48,24 @@ class App extends React.Component {
     this.setState({ user: userService.getUser() })
   }
 
+  // CRD journal entries //
+
+  handleAddEntry = async newEntryData => {
+    const newEntry = await entriesAPI.create(newEntryData)
+    this.setState(state => ({
+      entries: [...state.entries, newEntry]
+    }), () => this.props.history.push('/'))
+  }
+
+  handleDeleteEntry = async id => {
+    await entriesAPI.deleteOne(id)
+    this.setState(state => ({
+      entries: state.entries.filter(e => e._id !== id)
+    }), () => this.props.history.push('/'))
+  }
+
+  // lifecycle methods //
+
   componentDidMount() {
     document.addEventListener('mousedown', this.handleClickOutside)
   }
@@ -56,7 +74,7 @@ class App extends React.Component {
   }
 
   async componentWillMount() {
-    const entries = await entriesService.index()
+    const entries = await entriesAPI.index()
     this.setState({ entries })
   }
 
@@ -117,14 +135,20 @@ class App extends React.Component {
             <Route exact path='/reading' render={() =>
               <ReadingPage/>
             }/>
-            <Route exact path='/journal' render={() =>
+            <Route exact path='/journal' render={(history, location) =>
               userService.getUser() ?
                 <JournalPage
                   entries={this.state.entries}
-                  handleUpdateEntries={this.handleUpdateEntries}
+                  handleDeleteEntry={this.handleDeleteEntry}
+                  user={this.state.user}
+                  history={history}
+                  location={location}
                 />
               :
               <Redirect to='/login'/>
+            }/>
+            <Route exact path='/addentry' render={() =>
+              <AddEntryPage handleAddEntry={this.handleAddEntry}/>
             }/>
             <Route path='/deck' component={() => {
               window.location.href = 'https://www.smallspells.com/tarot-2'

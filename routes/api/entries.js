@@ -9,6 +9,7 @@ router.get('/', entriesCtrl.journalEntries)
 router.use(require('../../config/auth'))
 
 router.post('/', checkAuth, entriesCtrl.create)
+router.post('/', checkAuth, entriesCtrl.delete)
 
 function checkAuth(req, res, next) {
     if (req.user) return next()

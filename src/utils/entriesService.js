@@ -2,22 +2,17 @@ import tokenService from './tokenService'
 
 const BASE_URL = '/api/entries'
 
-export default {
-    index,
-    create
-}
-
-function index() {
+export function index() {
     const options = {
         method: 'GET',
         headers: {
-            'Authorization': 'Bearer' + tokenService.getToken()
+            'Authorization': 'Bearer ' + tokenService.getToken()
         }
     }
     return fetch(BASE_URL, options).then(res => res.json())
 }
 
-function create(entry) {
+export function create(entry) {
     const options = {
         method: 'POST', 
         headers: {
@@ -27,4 +22,14 @@ function create(entry) {
         body: JSON.stringify(entry)
     }
     return fetch(BASE_URL, options).then(res => res.json())
+}
+
+export function deleteOne(id) {
+    const options = {
+        method: 'DELETE',
+        headers: {
+            'Authorization': 'Bearer ' + tokenService.getToken()
+        }
+    }
+    return fetch(`${BASE_URL}/${id}`, options).then(res => res.json())
 }
