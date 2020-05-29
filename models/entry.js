@@ -20,7 +20,6 @@ const entrySchema = new Schema({
     },
     entry: {
         type: String,
-        required: true
     },
     user: {
         type: Schema.Types.ObjectId,

@@ -1,16 +1,16 @@
 import React from 'react'
 
 
-const Entry = ({entry, handleDeleteEntry}) => {
+const Entry = (props, {handleDeleteEntry}) => {
     return (
         <tr>
-            <td>{entry.date}</td>
-            <td>{entry.past}</td>
-            <td>{entry.present}</td>
-            <td>{entry.future}</td>
-            <td>{entry.entry}</td>
+            <td>{props.entry.date}</td>
+            <td>{props.entry.past}</td>
+            <td>{props.entry.present}</td>
+            <td>{props.entry.future}</td>
+            <td>{props.entry.entry}</td>
             <td>
-                <button onClick={() => handleDeleteEntry(entry._id)}>Delete</button>
+                <button onClick={() => handleDeleteEntry(props.entry._id)}>Delete</button>
             </td>
         </tr>
     )

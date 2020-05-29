@@ -142,7 +142,6 @@ class App extends React.Component {
                   handleDeleteEntry={this.handleDeleteEntry}
                   user={this.state.user}
                   history={history}
-                  location={location}
                 />
               :
               <Redirect to='/login'/>
