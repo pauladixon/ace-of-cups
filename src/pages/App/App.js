@@ -8,12 +8,14 @@ import LoginPage from '../LoginPage/LoginPage'
 import ContactPage from '../ContactPage/ContactPage'
 import JournalPage from '../JournalPage/JournalPage'
 import ReadingPage from '../ReadingPage/ReadingPage'
+import entriesService from '../../utils/entriesService'
 import userService from '../../utils/userService'
 
 class App extends React.Component {
   navigation = React.createRef()
   state = {
     open: false,
+    entries: [],
     user: userService.getUser()
   }
 
@@ -33,6 +35,10 @@ class App extends React.Component {
     }
   }
 
+  handleUpdateEntries = (entries) => {
+    this.setState({ entries })
+  }
+
   handleLogout = () => {
     userService.logout()
     this.setState({ user: null })
@@ -47,6 +53,11 @@ class App extends React.Component {
   }
   componentWillUnmount() {
     document.removeEventListener('mousedown', this.handleClickOutside)
+  }
+
+  async componentWillMount() {
+    const entries = await entriesService.index()
+    this.setState({ entries })
   }
 
   render() {
@@ -108,7 +119,10 @@ class App extends React.Component {
             }/>
             <Route exact path='/journal' render={() =>
               userService.getUser() ?
-                <JournalPage/>
+                <JournalPage
+                  entries={this.state.entries}
+                  handleUpdateEntries={this.handleUpdateEntries}
+                />
               :
               <Redirect to='/login'/>
             }/>
