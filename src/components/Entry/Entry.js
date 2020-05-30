@@ -1,20 +1,19 @@
 import React from 'react'
-import './Entry.scss'
 
 
-const Entry = (props, {handleDeleteEntry}) => {
+const Entry = ({entry, handleDeleteEntry}) => {
     return (
-        <tr className='entry'>
-            <td>{props.entry.date}</td>
-            <td>{props.entry.past}</td>
-            <td>{props.entry.present}</td>
-            <td>{props.entry.future}</td>
-            <td>{props.entry.entry}</td>
-            <td>
-                <button onClick={() => handleDeleteEntry(props.entry._id)}>Delete</button>
+        <tr>
+            <td key={entry.id}>{entry.date}</td>
+            <td key={entry.id}>{entry.past}</td>
+            <td key={entry.id}>{entry.present}</td>
+            <td key={entry.id}>{entry.future}</td>
+            <td key={entry.id}>{entry.entry}</td>
+            <td key={entry.id}>
+                <button onClick={() => handleDeleteEntry(entry._id)}>Delete</button>
             </td>
         </tr>
     )
 }
 
-export default Entry
+export default Entry;

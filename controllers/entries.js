@@ -19,7 +19,7 @@ async function create(req, res) {
 async function journalEntries(req, res) {
     req.body.user = req.user._id
     const entries = await Entry.find({user: req.user._id})
-    res.json(entries)
+    res.status(200).json(entries);
 }
 
 async function deleteOne(req, res) {
