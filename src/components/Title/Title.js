@@ -4,8 +4,14 @@ import './Title.scss'
 
 const Title = () => {
     return (
-        <div>
-            <Link to='' className='title'>Ace of Cups</Link>
+        <div className='title-container'>
+            <Link to=''>
+                <img 
+                    className='title' 
+                    src='title.png' 
+                    alt='Ace of Cups'
+                />
+            </Link>
         </div>
     )
 }

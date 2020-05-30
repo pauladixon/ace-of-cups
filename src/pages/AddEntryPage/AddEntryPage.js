@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import './AddEntryPage.scss'
 
-class AddEntriesPage extends Component {
+class AddEntryPage extends Component {
     state = {
         invalidForm: true,
         formData: {
@@ -31,9 +32,15 @@ class AddEntriesPage extends Component {
         return (
             <>
                 <header>Add Journal Entry</header>
-                <form ref={this.formRef} autoComplete='off' onSubmit={this.handleSubmit}>
-                    <div><label>Date</label>
+                <form 
+                    className='entry'
+                    ref={this.formRef} 
+                    autoComplete='off' 
+                    onSubmit={this.handleSubmit}
+                >
+                    <div className='add-entry'><label>Date</label>
                         <input
+                            className='form-line'
                             name='date'
                             type='date'
                             value={this.state.formData.date}
@@ -42,8 +49,9 @@ class AddEntriesPage extends Component {
                         >
                         </input>
                     </div>
-                    <div><label>Card in the Past Position</label>
+                    <div className='add-entry'><label>Card in the Past Position</label>
                         <input
+                            className='form-line'
                             name='past'
                             type='text'
                             value={this.state.formData.past}
@@ -52,8 +60,9 @@ class AddEntriesPage extends Component {
                         >
                         </input>
                     </div>
-                    <div><label>Card in the Present Position</label>
+                    <div className='add-entry'><label>Card in the Present Position</label>
                         <input
+                            className='form-line'
                             name='present'
                             type='text'
                             value={this.state.formData.present}
@@ -62,8 +71,9 @@ class AddEntriesPage extends Component {
                         >
                         </input>
                     </div>
-                    <div><label>Card in the Future Position</label>
+                    <div className='add-entry'><label>Card in the Future Position</label>
                         <input
+                            className='form-line'
                             name='future'
                             type='text'
                             value={this.state.formData.future}
@@ -72,8 +82,9 @@ class AddEntriesPage extends Component {
                         >
                         </input>
                     </div>
-                    <div><label>Journal Entry</label>
+                    <div className='add-entry'><label>Journal Entry</label>
                         <input
+                            className='form-line'
                             name='entry'
                             type='text'
                             value={this.state.formData.entry}
@@ -94,4 +105,4 @@ class AddEntriesPage extends Component {
     }
 }
 
-export default AddEntriesPage
+export default AddEntryPage

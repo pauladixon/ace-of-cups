@@ -2,7 +2,7 @@ import React from 'react'
 import Entry from '../../components/Entry/Entry'
 import './JournalPage.scss'
 
-function JournalPage(props) {
+function JournalPage(props, {handleDeleteEntry}) {
     
     if(props.entries.length) {
         return (
