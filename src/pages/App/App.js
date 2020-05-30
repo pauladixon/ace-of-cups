@@ -28,14 +28,6 @@ class App extends React.Component {
       }
     })
   }
-
-  handleClickOutside = event => {
-    if (this.navigation.current && !this.navigation.current.contains(event.target)) {
-      this.setState({
-        open: false,
-      })
-    }
-  }
   
   // jwt token auth //
 
@@ -54,7 +46,7 @@ class App extends React.Component {
     const newEntry = await entriesAPI.create(newEntryData)
     this.setState(state => ({
       entries: [...state.entries, newEntry]
-    }), () => this.props.history.push('/'))
+    }), () => this.props.history.push('/journal'))
   }
 
   handleDeleteEntry = async id => {
@@ -64,16 +56,7 @@ class App extends React.Component {
     }), () => this.props.history.push('/'))
   }
 
-  // lifecycle methods //
-
-  componentDidMount() {
-    document.addEventListener('mousedown', this.handleClickOutside)
-  }
-  componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClickOutside)
-  }
-
-  async componentDidlMount() {
+  async componentDidMount() {
     const entries = await entriesAPI.index()
     this.setState({ entries })
   }

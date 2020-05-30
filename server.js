@@ -15,6 +15,7 @@ app.use(logger('dev'))
 app.use(express.json())
 
 app.use('/api/users', require('./routes/api/users'))
+app.use(require('./config/auth'));
 app.use('/api/entries', require('./routes/api/entries'))
 
 
