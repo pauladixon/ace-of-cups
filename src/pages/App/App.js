@@ -12,12 +12,24 @@ import AddEntryPage from '../AddEntryPage/AddEntryPage'
 import * as entriesAPI from '../../utils/entriesService'
 import userService from '../../utils/userService'
 
+import ThreeCardLayout from '../../components/ThreeCardLayout/ThreeCardLayout'
+import CARDS_DATA from '../../data/cards.json'
+import LAYOUT_DATA from '../../data/layout.json'
+
+const LAYOUTS = {
+  'ThreeCard': ThreeCardLayout
+}
+
 class App extends React.Component {
   navigation = React.createRef()
   state = {
     open: false,
     entries: [],
-    user: userService.getUser()
+    user: userService.getUser(),
+    layout: 'ThreeCard',
+    cards: this.pickCards(),
+    positionTitle: '',
+    positionInfo: '',
   }
 
   // dropdown //
@@ -39,6 +51,13 @@ class App extends React.Component {
   handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() })
   }
+
+  // tarot reading //
+
+  pickCards(){
+    return 
+  }
+
 
   // CRD journal entries //
 
@@ -62,6 +81,14 @@ class App extends React.Component {
   }
 
   render() {
+    const Layout = LAYOUTS[this.state.layout]
+    const positionInfos = LAYOUT_DATA.map(function(positionInfo){
+      return positionInfo.positionInfo
+    })
+    const positionTitles = LAYOUT_DATA.map(function(positionTitle){
+      return positionTitle.positionTitle
+    })
+
     return (
       <div className="container">
         <div className='logo'>
@@ -116,9 +143,13 @@ class App extends React.Component {
               <HomePage/>
             }/>
             <Route exact path='/reading' render={() =>
-              <ReadingPage/>
+              <ReadingPage
+                cards={this.state.cards}
+                positionInfos={positionInfos}
+                positionTitles={positionTitles}
+              />
             }/>
-            <Route exact path='/journal' render={(history, location) =>
+            <Route exact path='/journal' render={(history) =>
               userService.getUser() ?
                 <JournalPage
                   entries={this.state.entries}
