@@ -11,25 +11,22 @@ import ReadingPage from '../ReadingPage/ReadingPage'
 import AddEntryPage from '../AddEntryPage/AddEntryPage'
 import * as entriesAPI from '../../utils/entriesService'
 import userService from '../../utils/userService'
+import Card from '../../components/Card/Card'
+import Controls from '../../components/Controls/Controls'
 
-import ThreeCardLayout from '../../components/ThreeCardLayout/ThreeCardLayout'
-import CARDS_DATA from '../../data/cards.json'
-import LAYOUT_DATA from '../../data/layout.json'
-
-const LAYOUTS = {
-  'ThreeCard': ThreeCardLayout
-}
 
 class App extends React.Component {
   navigation = React.createRef()
-  state = {
-    open: false,
-    entries: [],
-    user: userService.getUser(),
-    layout: 'ThreeCard',
-    cards: this.pickCards(),
-    positionTitle: '',
-    positionInfo: '',
+  
+  constructor(props){
+    super(props)
+    this.state = {
+      open: false,
+      entries: [],
+      user: userService.getUser(),
+      sections: this.dealCards(3, true)
+    }
+    this.shuffleCards = this.shuffleCards.bind(this)
   }
 
   // dropdown //
@@ -54,10 +51,29 @@ class App extends React.Component {
 
   // tarot reading //
 
-  pickCards(){
-    return 
-  }
+  dealCards(display, load) {
+    let sections = []
+    let cards = this.props.cards.slice(0)
+    let allCards = display
+    let layout = 0
 
+    for (let i=0; i<allCards; i++){
+      let random = Math.floor(Math.random() * cards.length)
+      let card = cards.splice(random, 1)[0],
+        name = card.name,
+        position = this.props.layout[layout][i]
+      let classes = layout === 2 ? 'card todays' : 'card'
+
+      if (load !== true){
+        sections.push(<div className={classes} ket={i}><Card index={i} key={name} value={card} position={position} /></div>)
+      }
+    }
+    return [sections]
+  }
+  shuffleCards(display, load){
+    let cardsArray = this.dealCards(display, load)
+    this.setState({ sections: cardsArray[0] })
+  }
 
   // CRD journal entries //
 
@@ -81,14 +97,6 @@ class App extends React.Component {
   }
 
   render() {
-    const Layout = LAYOUTS[this.state.layout]
-    const positionInfos = LAYOUT_DATA.map(function(positionInfo){
-      return positionInfo.positionInfo
-    })
-    const positionTitles = LAYOUT_DATA.map(function(positionTitle){
-      return positionTitle.positionTitle
-    })
-
     return (
       <div className="container">
         <div className='logo'>
@@ -140,13 +148,20 @@ class App extends React.Component {
         <div className='body'>
           <Switch>
             <Route exact path='/' render={() =>
-              <HomePage/>
+              <>
+                <HomePage/>
+                <div>
+                  <Controls shuffleCards={(display, load) => this.shuffleCards(display, load)} />
+                  <div>
+                    <p>tarot cards</p>
+                    <img src='images/ar00.png' alt='hi'/>
+                    {this.state.sections}
+                  </div>
+                </div>
+              </>
             }/>
             <Route exact path='/reading' render={() =>
               <ReadingPage
-                cards={this.state.cards}
-                positionInfos={positionInfos}
-                positionTitles={positionTitles}
               />
             }/>
             <Route exact path='/journal' render={(history) =>

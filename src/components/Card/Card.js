@@ -1,34 +1,22 @@
-import React, {Component, PropTypes} from 'react'
+import React, { Component } from 'react'
 
 export default class Card extends Component {
 
-    static propTypes = {
-        "assetName": PropTypes.string.isRequired,
-        "name": PropTypes.string.isRequired,
-        "description": PropTypes.string.isRequired,
+    constructor(props) {
+        super(props)
+
+        let image = 'images/' + this.props.value.assetName + '.png'
+
+        this.state = {
+            image: image
+        }
     }
 
-    cardDescription() {
-        let desc = {}
-        desc = this.props.description
-        return desc
-    }
-
-    imageSource() {
-        const { assetName } = this.props
-        return `${assetName}.png`
-    }
-    
     render() {
-        const { name } = this.props
-
-        return(
-            <div className='Card'>
-                <img src={this.imageSource()} alt={name} />
-                <h4 className="cardText">{this.props.positionTitle}</h4>
-                <div className="cardText">{this.props.positionInfo}</div>
-                <h4 className="cardText">{name}</h4>
-                <div className="cardText">{this.cardDescription()}</div>
+        return (
+            <div>
+                <img src={this.state.image} alt={this.props.value.name}/>
+                <p>{this.props.position} - {this.props.value.name}</p>
             </div>
         )
     }
