@@ -15,9 +15,12 @@ export default class Card extends Component {
 
     render() {
         return (
-            <div className='card'>
-                <img src={this.state.image} alt={this.props.value.name}/>
-                <p>{this.props.position} - {this.props.value.name}</p>
+            <div className='card-row'>
+                <img className='card'src={this.state.image} alt={this.props.value.name}/>
+                <div className='card-right'>
+                    <p>{this.props.position} - {this.props.value.name}</p>
+                    <p>{this.props.value.description}</p>
+                </div>
             </div>
         )
     }

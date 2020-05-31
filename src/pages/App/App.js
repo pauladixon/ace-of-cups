@@ -52,7 +52,7 @@ class App extends React.Component {
   // tarot reading //
 
   dealCards(display, load) {
-    let sections = []
+    let spread = []
     let cards = this.props.cards.slice(0)
     let allCards = display
     let layout = 0
@@ -65,14 +65,14 @@ class App extends React.Component {
       let classes = layout === 2 ? 'card todays' : 'card'
 
       if (load !== true){
-        sections.push(<div className={classes} ket={i}><Card index={i} key={name} value={card} position={position} /></div>)
+        spread.push(<div className={classes} ket={i}><Card index={i} key={name} value={card} position={position} /></div>)
       }
     }
-    return [sections]
+    return [spread]
   }
   shuffleCards(display, load){
     let cardsArray = this.dealCards(display, load)
-    this.setState({ sections: cardsArray[0] })
+    this.setState({ spread: cardsArray[0] })
   }
 
   // CRD journal entries //
@@ -158,7 +158,7 @@ class App extends React.Component {
             <Route exact path='/reading' render={() =>
               <>
                 <div>
-                  {this.state.sections}
+                  {this.state.spread}
                 </div>
                 <ReadingPage/>
               </>

@@ -1,3 +1,15 @@
 .card {
-    max-width: 500px;
+    max-width: 300px;
+}
+
+.card-row {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+}
+
+.card-right {
+    margin-left: 30px;
+    width: 40vw;
 }
