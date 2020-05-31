@@ -10,9 +10,6 @@ const Invitation = (props) => (
         <p className='intro'>
             To dip into this well, close your eyes, focus on a topic, a question, a feeling, a person.... and with a pure intent for seeking information and clarity in the matter at hand, press go!
         </p>
-        <Link to='/Reading'>
-            <button className='go'>GO →</button>
-        </Link>
     </div>
 )
 

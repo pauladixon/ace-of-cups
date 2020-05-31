@@ -12,7 +12,7 @@ export default class Controls extends Component {
     render() {
         return (
             <div>
-                <button onClick={() => this.props.shuffleCards(3,0)}>GO</button>
+                <button onClick={() => this.props.shuffleCards(3,0)}>GO →</button>
             </div>
         )
     }

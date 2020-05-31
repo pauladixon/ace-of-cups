@@ -150,19 +150,18 @@ class App extends React.Component {
             <Route exact path='/' render={() =>
               <>
                 <HomePage/>
-                <div>
+                <Link to='/Reading'>
                   <Controls shuffleCards={(display, load) => this.shuffleCards(display, load)} />
-                  <div>
-                    <p>tarot cards</p>
-                    <img src='images/ar00.png' alt='hi'/>
-                    {this.state.sections}
-                  </div>
-                </div>
+                </Link>
               </>
             }/>
             <Route exact path='/reading' render={() =>
-              <ReadingPage
-              />
+              <>
+                <div>
+                  {this.state.sections}
+                </div>
+                <ReadingPage/>
+              </>
             }/>
             <Route exact path='/journal' render={(history) =>
               userService.getUser() ?

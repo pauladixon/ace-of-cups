@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Card.scss'
 
 export default class Card extends Component {
 
@@ -14,7 +15,7 @@ export default class Card extends Component {
 
     render() {
         return (
-            <div>
+            <div className='card'>
                 <img src={this.state.image} alt={this.props.value.name}/>
                 <p>{this.props.position} - {this.props.value.name}</p>
             </div>
