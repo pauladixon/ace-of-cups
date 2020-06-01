@@ -7,12 +7,13 @@
 .card-row {
     margin: auto;
     display: flex;
+    justify-content: center;
     align-items: center;
     width: 100vw;
     margin-bottom: 50px;
 }
 
 .card-right {
-    margin-left: 30px;
-    width: 40vw;
+    margin-left: 70px;
+    max-width: 340px;
 }

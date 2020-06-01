@@ -24,8 +24,7 @@ class App extends React.Component {
     this.state = {
       open: false,
       entries: [],
-      user: userService.getUser(),
-      sections: this.dealCards(3, true)
+      user: userService.getUser()
     }
     this.shuffleCards = this.shuffleCards.bind(this)
   }
@@ -52,27 +51,24 @@ class App extends React.Component {
 
   // tarot reading //
 
-  dealCards(display, load) {
+  dealCards(deal) {
     let spread = []
     let cards = this.props.cards.slice(0)
-    let allCards = display
-    let layout = 0
 
-    for (let i=0; i<allCards; i++){
+    for (let i=0; i<3; i++){
       let random = Math.floor(Math.random() * cards.length)
       let card = cards.splice(random, 1)[0],
         name = card.name,
-        position = this.props.layout[layout][i]
-      let classes = layout === 2 ? 'card todays' : 'card'
+        position = this.props.layout[0][i]
 
-      if (load !== true){
-        spread.push(<div className={classes} ket={i}><Card index={i} key={name} value={card} position={position} /></div>)
+      if (deal !== true){
+        spread.push(<div key={i}><Card index={i} key={name} value={card} position={position} /></div>)
       }
     }
     return [spread]
   }
-  shuffleCards(display, load){
-    let cardsArray = this.dealCards(display, load)
+  shuffleCards(deal){
+    let cardsArray = this.dealCards(deal)
     this.setState({ spread: cardsArray[0] })
   }
 
@@ -160,7 +156,7 @@ class App extends React.Component {
               <>
                 <HomePage/>
                 <Link to='/Reading'>
-                  <Controls shuffleCards={(display, load) => this.shuffleCards(display, load)} />
+                  <Controls shuffleCards={() => this.shuffleCards()} />
                 </Link>
               </>
             }/>
@@ -172,14 +168,13 @@ class App extends React.Component {
                 <ReadingPage/>
               </>
             }/>
-            <Route exact path='/journal' render={({history, location}) =>
+            <Route exact path='/journal' render={({history}) =>
               userService.getUser() ?
                 <JournalPage
                   entries={this.state.entries}
                   handleDeleteEntry={this.handleDeleteEntry}
                   user={this.state.user}
                   history={history}
-                  location={location}
                   spread={this.state.spread}
                 />
               :
@@ -191,11 +186,10 @@ class App extends React.Component {
                 spread={this.state.spread}
               />
             }/>
-            <Route exact path='/edit' render={({history, location}) =>
+            <Route exact path='/edit' render={({history}) =>
               <EditEntryPage
                 handleUpdateEntry={this.handleUpdateEntry}
                 history={history}
-                location={location}
               />
             }/>
             <Route path='/deck' component={() => {
