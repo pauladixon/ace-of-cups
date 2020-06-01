@@ -37,6 +37,13 @@ class App extends React.Component {
       }
     })
   }
+  handleClickOutside = event => {	
+    if (this.navigation.current && !this.navigation.current.contains(event.target)) {	
+      this.setState({	
+        open: false,	
+      })	
+    }	
+  }
   
   // jwt token auth //
 
@@ -97,8 +104,13 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside)
     const entries = await entriesAPI.index()
     this.setState({ entries })
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside)
   }
 
   render() {
