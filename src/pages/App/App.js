@@ -180,12 +180,16 @@ class App extends React.Component {
                   user={this.state.user}
                   history={history}
                   location={location}
+                  spread={this.state.spread}
                 />
               :
               <Redirect to='/login'/>
             }/>
-            <Route exact path='/addentry' render={() =>
-              <AddEntryPage handleAddEntry={this.handleAddEntry}/>
+            <Route exact path='/addentry' render={(spread) =>
+              <AddEntryPage 
+                handleAddEntry={this.handleAddEntry}
+                spread={this.state.spread}
+              />
             }/>
             <Route exact path='/edit' render={({history, location}) =>
               <EditEntryPage
