@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch, Link, Redirect } from 'react-router-dom'
+import { Route, Switch, Link, Redirect, withRouter } from 'react-router-dom'
 import './App.scss'
 import Title from '../../components/Title/Title'
 import SignupPage from '../SignupPage/SignupPage'
@@ -13,6 +13,7 @@ import * as entriesAPI from '../../utils/entriesService'
 import userService from '../../utils/userService'
 import Card from '../../components/Card/Card'
 import Controls from '../../components/Controls/Controls'
+import EditEntryPage from '../EditEntryPage/EditEntryPage'
 
 
 class App extends React.Component {
@@ -84,11 +85,19 @@ class App extends React.Component {
     }), () => this.props.history.push('/journal'))
   }
 
+  handleUpdateEntry = async updatedEntryData => {
+    const updatedEntry = await entriesAPI.update(updatedEntryData)
+    const newEntriesArray = this.state.entries.map(e => 
+      e._id === updatedEntry._id ? updatedEntry : e)
+      this.setState({ entries: newEntriesArray },
+        () => this.props.history.push('/journal'))
+  }
+
   handleDeleteEntry = async id => {
     await entriesAPI.deleteOne(id)
     this.setState(state => ({
       entries: state.entries.filter(e => e._id !== id)
-    }), () => this.props.history.push('/'))
+    }), () => this.props.history.push('/journal'))
   }
 
   async componentDidMount() {
@@ -163,19 +172,27 @@ class App extends React.Component {
                 <ReadingPage/>
               </>
             }/>
-            <Route exact path='/journal' render={(history) =>
+            <Route exact path='/journal' render={({history, location}) =>
               userService.getUser() ?
                 <JournalPage
                   entries={this.state.entries}
                   handleDeleteEntry={this.handleDeleteEntry}
                   user={this.state.user}
                   history={history}
+                  location={location}
                 />
               :
               <Redirect to='/login'/>
             }/>
             <Route exact path='/addentry' render={() =>
               <AddEntryPage handleAddEntry={this.handleAddEntry}/>
+            }/>
+            <Route exact path='/edit' render={({history, location}) =>
+              <EditEntryPage
+                handleUpdateEntry={this.handleUpdateEntry}
+                history={history}
+                location={location}
+              />
             }/>
             <Route path='/deck' component={() => {
               window.location.href = 'https://www.smallspells.com/tarot-2'
@@ -206,4 +223,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withRouter(App)

@@ -24,6 +24,14 @@ export function create(entry) {
     return fetch(BASE_URL, options).then(res => res.json())
 }
 
+export function update(entry) {
+    return fetch(`${BASE_URL}/${entry._id}`, {
+        method: 'PUT',
+        headers: {'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken()},
+        body: JSON.stringify(entry)
+    }).then(res => res.json())
+}
+
 export function deleteOne(id) {
     const options = {
         method: 'DELETE',

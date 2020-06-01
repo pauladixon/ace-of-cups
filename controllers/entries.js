@@ -3,7 +3,8 @@ let Entry = require('../models/entry')
 module.exports = {
     create,
     journalEntries,
-    delete: deleteOne
+    delete: deleteOne,
+    update
 }
 
 async function create(req, res) {
@@ -23,7 +24,21 @@ async function journalEntries(req, res) {
 }
 
 async function deleteOne(req, res) {
-    req.body.user = req.user._id
-    const deletedEntry = await Entry.findByIdAndRemove(req.params.id)
-    res.status(200).json(deletedEntry)
+    try{
+        const deletedEntry = await Entry.findByIdAndRemove(req.params.id)
+        res.status(200).json(deletedEntry)
+    }
+    catch(err){
+        res.status(500).json(err)
+    }
+}
+
+async function update(req, res) {
+    try {
+        const updatedEntry = await Entry.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        res.status(200).json(updatedEntry)
+    }
+    catch(err){
+        res.status(500).json(err)
+    }
 }
