@@ -45,6 +45,25 @@ body {
   border-width: 1px;
 }
 
+button {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  font-family: Futura;
+  font-size: 12px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
 .button {
   @include styling();
   padding: 0px 30px 10px 30px;
@@ -141,4 +160,23 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.invert-button {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: Futura;
+  font-size: 14px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.invert-button:hover {
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
 }

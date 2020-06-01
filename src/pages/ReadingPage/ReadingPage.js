@@ -7,7 +7,7 @@ class ReadingPage extends Component {
         return (
             <div className='reading-container'>
                 <Link to='/addentry'>
-                    <button className='go'>Add Reading to Journal</button>
+                    <button className='invert-button'>Add Reading to Journal</button>
                 </Link>
             </div>
         )

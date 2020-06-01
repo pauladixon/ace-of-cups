@@ -11,11 +11,13 @@ function JournalPage(props, {handleDeleteEntry}) {
                 <table>
                     <thead>
                         <tr>
+                            <th></th>
                             <th>Date</th>
                             <th>Past</th>
                             <th>Present</th>
                             <th>Future</th>
                             <th>Entry</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>

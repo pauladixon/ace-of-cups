@@ -31,7 +31,6 @@ class AddEntryPage extends Component {
     render() {
         return (
             <>
-                <header>Add Journal Entry</header>
                 <form 
                     className='entry'
                     ref={this.formRef} 
@@ -96,7 +95,7 @@ class AddEntryPage extends Component {
                         <button
                             type='submit'
                             disabled={this.state.invalidForm}
-                        >Add Reading
+                        >Add Reading to Journal
                         </button>
                     </div>
                 </form>
