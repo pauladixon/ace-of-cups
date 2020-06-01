@@ -6,7 +6,7 @@ class AddEntryPage extends Component {
         invalidForm: true,
         formData: {
             date: '',
-            past: '',
+            past: this.props.spread,
             present: '',
             future: '',
             entry: '',

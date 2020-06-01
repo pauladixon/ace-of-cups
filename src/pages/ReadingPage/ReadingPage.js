@@ -6,6 +6,9 @@ class ReadingPage extends Component {
     render() {
         return (
             <div className='reading-container'>
+                <div>
+                  {this.props.spread}
+                </div>
                 <Link to='/addentry'>
                     <button className='invert-button'>Add Reading to Journal</button>
                 </Link>

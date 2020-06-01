@@ -67,16 +67,14 @@ class App extends React.Component {
       let card = cards.splice(random, 1)[0],
         name = card.name,
         position = this.props.layout[0][i]
-
       if (deal !== true){
-        spread.push(<div key={i}><Card index={i} key={name} value={card} position={position} /></div>)
+        spread.push(<Card index={i} key={name} value={card} position={position} />)
       }
     }
     return [spread]
   }
   shuffleCards(deal){
-    let cardsArray = this.dealCards(deal)
-    this.setState({ spread: cardsArray[0] })
+    this.setState({ spread: this.dealCards(deal) })
   }
 
   // CRD journal entries //
@@ -172,12 +170,11 @@ class App extends React.Component {
                 </Link>
               </>
             }/>
-            <Route exact path='/reading' render={() =>
+            <Route exact path='/reading' render={(spread) =>
               <>
-                <div>
-                  {this.state.spread}
-                </div>
-                <ReadingPage/>
+                <ReadingPage
+                  spread={this.state.spread}
+                />
               </>
             }/>
             <Route exact path='/journal' render={({history}) =>
@@ -187,7 +184,6 @@ class App extends React.Component {
                   handleDeleteEntry={this.handleDeleteEntry}
                   user={this.state.user}
                   history={history}
-                  spread={this.state.spread}
                 />
               :
               <Redirect to='/login'/>
