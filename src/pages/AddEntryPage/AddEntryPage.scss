@@ -1,9 +1,14 @@
 .add-entry {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    padding: 0px 20px;
 }
 
 .entry {
     margin-top: 30px;
+    padding: 30px 30px;
+}
+
+label {
+    margin-top: 20px;
 }

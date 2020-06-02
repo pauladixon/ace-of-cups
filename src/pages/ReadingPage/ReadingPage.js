@@ -10,7 +10,9 @@ class ReadingPage extends Component {
                   {this.props.spread}
                 </div>
                 <Link to='/addentry'>
-                    <button className='invert-button'>Add Reading to Journal</button>
+                    <div className='button-container'>
+                        <button className='invert-button'>Add Reading to Journal</button>
+                    </div>
                 </Link>
             </div>
         )

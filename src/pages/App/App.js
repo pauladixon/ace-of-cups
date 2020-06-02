@@ -71,7 +71,7 @@ class App extends React.Component {
         spread.push(<Card index={i} key={name} value={card} position={position} />)
       }
     }
-    return [spread]
+    return [...spread]
   }
   shuffleCards(deal){
     this.setState({ spread: this.dealCards(deal) })
@@ -165,7 +165,7 @@ class App extends React.Component {
             <Route exact path='/' render={() =>
               <>
                 <HomePage/>
-                <Link to='/Reading'>
+                <Link to='/reading'>
                   <Controls shuffleCards={() => this.shuffleCards()} />
                 </Link>
               </>
@@ -177,27 +177,29 @@ class App extends React.Component {
                 />
               </>
             }/>
-            <Route exact path='/journal' render={({history}) =>
+            <Route exact path='/journal' render={({history, location}) =>
               userService.getUser() ?
                 <JournalPage
                   entries={this.state.entries}
                   handleDeleteEntry={this.handleDeleteEntry}
                   user={this.state.user}
                   history={history}
+                  location={location}
                 />
               :
               <Redirect to='/login'/>
             }/>
-            <Route exact path='/addentry' render={(spread) =>
+            <Route exact path='/addentry' render={() =>
               <AddEntryPage 
                 handleAddEntry={this.handleAddEntry}
                 spread={this.state.spread}
               />
             }/>
-            <Route exact path='/edit' render={({history}) =>
+            <Route exact path='/edit' render={({history, location}) =>
               <EditEntryPage
                 handleUpdateEntry={this.handleUpdateEntry}
                 history={history}
+                location={location}
               />
             }/>
             <Route path='/deck' component={() => {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import './EditEntryPage.scss'
 
 class EditEntryPage extends Component {
 
@@ -26,7 +27,6 @@ class EditEntryPage extends Component {
     render() {
         return (
             <>
-                 <header>Edit Journal Entry</header>
                 <form 
                     className='entry'
                     ref={this.formRef} 
@@ -78,22 +78,25 @@ class EditEntryPage extends Component {
                         </input>
                     </div>
                     <div className='add-entry'><label>Journal Entry</label>
-                        <input
+                        <textarea
                             className='form-line'
                             name='entry'
                             type='text'
                             value={this.state.formData.entry}
                             onChange={this.handleChange}
+                            rows="10" cols="19"
                         >
-                        </input>
+                        </textarea>
                     </div>
-                    <div>
+                    <div className='form-buttons'>
                         <button
                             type='submit'
                             disabled={this.state.invalidForm}
-                        >Update
+                        >Update Journal Entry
                         </button>
-                        <Link to='/'>Cancel</Link>
+                        <div>
+                            <Link to='/'>Cancel</Link>
+                        </div>
                     </div>
                 </form>
             </>

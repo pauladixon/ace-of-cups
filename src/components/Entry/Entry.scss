@@ -1,7 +1,43 @@
 .entry {
-    color: black;
+    border: 1px solid black;
+    min-width: 500px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 10px;
+    margin-right: 20%;
+    margin-left: 20%;
 }
 
-td {
-    margin: 30px;
+.row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.left {
+    width: 60%;
+}
+
+.right {
+    margin: 20px 30px;
+    width: 40%;
+}
+
+.data {
+    display: flex;
+    align-items: center;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 30px 0px 20px;
+}
+
+.label {
+    font-size: 12px;
+}
+
+.date {
+    font-size: 18px;
 }

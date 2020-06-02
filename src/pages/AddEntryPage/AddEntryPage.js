@@ -6,7 +6,7 @@ class AddEntryPage extends Component {
         invalidForm: true,
         formData: {
             date: '',
-            past: this.props.spread,
+            past: '',
             present: '',
             future: '',
             entry: '',
@@ -82,16 +82,17 @@ class AddEntryPage extends Component {
                         </input>
                     </div>
                     <div className='add-entry'><label>Journal Entry</label>
-                        <input
+                        <textarea
                             className='form-line'
                             name='entry'
                             type='text'
                             value={this.state.formData.entry}
                             onChange={this.handleChange}
+                            rows="10" cols="19"
                         >
-                        </input>
+                        </textarea>
                     </div>
-                    <div>
+                    <div className='form-buttons'>
                         <button
                             type='submit'
                             disabled={this.state.invalidForm}
