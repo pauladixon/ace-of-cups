@@ -8,8 +8,9 @@
 
 ## Screenshot(s):
 
-![Wireframe1](https://i.imgur.com/Ulmxur5.png)
-![Wireframe2](https://i.imgur.com/yjlEIKk.png)
+![Wireframe1](https://i.imgur.com/hfksXKy.png)
+![Wireframe2](https://i.imgur.com/LvaWkYz.png)
+![Wireframe3](https://i.imgur.com/SqKCsBS.png)
 
 ## Description
 
@@ -25,7 +26,7 @@ _React_
 _Node_
 _Javascript_
 _HTML_
-_CSS_
+_SCSS_
 
 
 ## Next Steps 

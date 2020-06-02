@@ -13,7 +13,6 @@ function JournalPage(props, {handleDeleteEntry}) {
                         key={entry._id}
                         user={props.user}
                         handleDeleteEntry={props.handleDeleteEntry}
-                        spread={props.spread}
                     />
                 )}
             </div>
