@@ -5,10 +5,10 @@ class AddEntryPage extends Component {
     state = {
         invalidForm: true,
         formData: {
-            date: this.props.date,
-            past: '',
-            present: '',
-            future: '',
+            date: '',
+            past: this.props.spreadData[0][1],
+            present: this.props.spreadData[1][1],
+            future: this.props.spreadData[2][1],
             entry: '',
         }
     }

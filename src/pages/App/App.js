@@ -65,7 +65,9 @@ class App extends React.Component {
       let card = cards.splice(random, 1)[0],
         name = card.name,
         position = this.props.layout[0][i]
-      spreadData.push([i, name, card, position])
+      spreadData.push(
+        [i, name, card, position]
+      )
     }
     return [...spreadData]
   }
@@ -73,7 +75,14 @@ class App extends React.Component {
   returnSpread = () => {
     let spread = []
     for (let i=0; i<3; i++){
-      spread.push(<Card index={this.state.spreadData[i][0]} key={this.state.spreadData[i][1]} value={this.state.spreadData[i][2]} position={this.state.spreadData[i][3]} />)
+      spread.push(
+        <Card 
+          index={this.state.spreadData[i][0]} 
+          key={this.state.spreadData[i][1]} 
+          value={this.state.spreadData[i][2]} 
+          position={this.state.spreadData[i][3]} 
+        />
+      )
     }
     return [...spread]
   }
@@ -208,6 +217,7 @@ class App extends React.Component {
                   user={this.state.user}
                   history={history}
                   location={location}
+                  date={this.state.date}
                 />
               :
               <Redirect to='/login'/>
@@ -219,7 +229,6 @@ class App extends React.Component {
                   user={this.state.user}
                   spreadData={this.state.spreadData}
                   spread={this.state.spread}
-                  date={this.state.date}
                 />
               :
               <Redirect to='/login'/>

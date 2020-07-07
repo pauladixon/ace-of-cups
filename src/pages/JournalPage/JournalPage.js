@@ -2,11 +2,11 @@ import React from 'react'
 import Entry from '../../components/Entry/Entry'
 import './JournalPage.scss'
 
-function JournalPage(props, {handleDeleteEntry}) {
+function JournalPage(props) {
     
     if(props.entries.length) {
         return (
-            <div>
+            <div className='entries'>
                 {props.entries.map(entry =>
                     <Entry
                         entry={entry}

@@ -1,3 +1,10 @@
-th {
-    margin: 30px;
+
+
+.entries {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    width: 400px;
+    margin-bottom: 100px;
 }
