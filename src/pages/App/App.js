@@ -11,25 +11,23 @@ import ReadingPage from '../ReadingPage/ReadingPage'
 import AddEntryPage from '../AddEntryPage/AddEntryPage'
 import * as entriesAPI from '../../utils/entriesService'
 import userService from '../../utils/userService'
-import Card from '../../components/Card/Card'
 import Controls from '../../components/Controls/Controls'
 import EditEntryPage from '../EditEntryPage/EditEntryPage'
+import Card from '../../components/Card/Card'
 
 
 class App extends React.Component {
+
   navigation = React.createRef()
   
-  constructor(props){
-    super(props)
-    this.state = {
-      open: false,
-      entries: [],
-      user: userService.getUser()
-    }
-    this.shuffleCards = this.shuffleCards.bind(this)
+  state = {
+    open: false,
+    entries: [],
+    user: userService.getUser()
   }
 
   // dropdown //
+
   handleButtonClick = () => {
     this.setState(state => {
       return {
@@ -37,6 +35,7 @@ class App extends React.Component {
       }
     })
   }
+
   handleClickOutside = event => {	
     if (this.navigation.current && !this.navigation.current.contains(event.target)) {	
       this.setState({	
@@ -58,26 +57,35 @@ class App extends React.Component {
 
   // tarot reading //
 
-  dealCards(deal) {
-    let spread = []
+  dealCards = () => {
+    let spreadData = []
     let cards = this.props.cards.slice(0)
-
     for (let i=0; i<3; i++){
       let random = Math.floor(Math.random() * cards.length)
       let card = cards.splice(random, 1)[0],
         name = card.name,
         position = this.props.layout[0][i]
-      if (deal !== true){
-        spread.push(<Card index={i} key={name} value={card} position={position} />)
-      }
+      spreadData.push([i, name, card, position])
+    }
+    return [...spreadData]
+  }
+
+  returnSpread = () => {
+    let spread = []
+    for (let i=0; i<3; i++){
+      spread.push(<Card index={this.state.spreadData[i][0]} key={this.state.spreadData[i][1]} value={this.state.spreadData[i][2]} position={this.state.spreadData[i][3]} />)
     }
     return [...spread]
   }
-  shuffleCards(deal){
-    this.setState({ spread: this.dealCards(deal) })
+
+  async shuffleCards () {
+    const spreadData = await this.dealCards()
+      this.setState({ spreadData })
+    const spread = await this.returnSpread()
+      this.setState({ spread })
   }
 
-  // CRD journal entries //
+  // journal entries //
 
   handleAddEntry = async newEntryData => {
     const newEntry = await entriesAPI.create(newEntryData)
@@ -101,13 +109,25 @@ class App extends React.Component {
     }), () => this.props.history.push('/journal'))
   }
 
+  getCurrentDate(){
+    let newDate = new Date()
+    let date = newDate.getDate()
+    let month = newDate.getMonth() + 1
+    let year = newDate.getFullYear()
+    return `${year}${''}${month<10?`0${month}`:`${month}`}${''}${date}`
+  }
+
+  // lifecycle methods //
+
   async componentDidMount() {
     document.addEventListener('mousedown', this.handleClickOutside)
     const entries = await entriesAPI.index()
     this.setState({ entries })
+    const date = await this.getCurrentDate()
+    this.setState({ date })
   }
 
-  componentWillUnmount() {
+  async componentWillUnmount() {
     document.removeEventListener('mousedown', this.handleClickOutside)
   }
 
@@ -166,13 +186,16 @@ class App extends React.Component {
               <>
                 <HomePage/>
                 <Link to='/reading'>
-                  <Controls shuffleCards={() => this.shuffleCards()} />
+                  <Controls 
+                    shuffleCards={() => this.shuffleCards()}
+                  />
                 </Link>
               </>
             }/>
             <Route exact path='/reading' render={(spread) =>
               <>
                 <ReadingPage
+                  spreadData={this.state.spreadData}
                   spread={this.state.spread}
                 />
               </>
@@ -189,10 +212,14 @@ class App extends React.Component {
               :
               <Redirect to='/login'/>
             }/>
-            <Route exact path='/addentry' render={() =>
+            <Route exact path='/addentry' render={(user) =>
               userService.getUser() ?
                 <AddEntryPage 
                   handleAddEntry={this.handleAddEntry}
+                  user={this.state.user}
+                  spreadData={this.state.spreadData}
+                  spread={this.state.spread}
+                  date={this.state.date}
                 />
               :
               <Redirect to='/login'/>

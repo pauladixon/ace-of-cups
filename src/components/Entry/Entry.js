@@ -6,7 +6,7 @@ import './Entry.scss'
 const Entry = ({entry, handleDeleteEntry, user}) => {
     return (
         <>
-            <div className='entry'>
+            <div key={entry.id} className='entry'>
                 <p className='journal-row date' key={entry.id}>{entry.date}</p>
                 <div className='data'>
                     <div className='left'>

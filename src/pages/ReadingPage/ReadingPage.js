@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import './ReadingPage.scss'
 
 class ReadingPage extends Component {
+    
     render() {
         return (
             <div className='reading-container'>

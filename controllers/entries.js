@@ -7,20 +7,16 @@ module.exports = {
     update
 }
 
-async function create(req, res) {
-    req.body.user = req.user._id
-    try {
-        await Entry.create(req.body)
-        journalEntries(req, res)
-    } catch (err) {
-        res.json({err})
-    }
-}
-
 async function journalEntries(req, res) {
     req.body.user = req.user._id
     const entries = await Entry.find({user: req.user._id})
     res.status(200).json(entries);
+}
+
+async function create(req, res) {
+    req.body.user = req.user
+    const entry = await Entry.create(req.body)
+    res.status(201).json(entry)
 }
 
 async function deleteOne(req, res) {
