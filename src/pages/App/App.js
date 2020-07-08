@@ -9,11 +9,12 @@ import ContactPage from '../ContactPage/ContactPage'
 import JournalPage from '../JournalPage/JournalPage'
 import ReadingPage from '../ReadingPage/ReadingPage'
 import AddEntryPage from '../AddEntryPage/AddEntryPage'
+import JournalDetailPage from '../JournalDetailPage/JournalDetailPage'
 import * as entriesAPI from '../../utils/entriesService'
 import userService from '../../utils/userService'
 import Controls from '../../components/Controls/Controls'
 import EditEntryPage from '../EditEntryPage/EditEntryPage'
-import Card from '../../components/Card/Card'
+import TarotCard from '../../components/TarotCard/TarotCard'
 
 
 class App extends React.Component {
@@ -72,15 +73,15 @@ class App extends React.Component {
     return [...spreadData]
   }
 
-  returnSpread = () => {
+  returnSpread = (spreadData) => {
     let spread = []
     for (let i=0; i<3; i++){
       spread.push(
-        <Card 
-          index={this.state.spreadData[i][0]} 
-          key={this.state.spreadData[i][1]} 
-          value={this.state.spreadData[i][2]} 
-          position={this.state.spreadData[i][3]} 
+        <TarotCard 
+          index={spreadData[i][0]} 
+          key={spreadData[i][1]} 
+          value={spreadData[i][2]} 
+          position={spreadData[i][3]} 
         />
       )
     }
@@ -90,7 +91,7 @@ class App extends React.Component {
   async shuffleCards () {
     const spreadData = await this.dealCards()
       this.setState({ spreadData })
-    const spread = await this.returnSpread()
+    const spread = await this.returnSpread(this.state.spreadData)
       this.setState({ spread })
   }
 
@@ -217,7 +218,7 @@ class App extends React.Component {
                   user={this.state.user}
                   history={history}
                   location={location}
-                  date={this.state.date}
+                  returnSpread={this.returnSpread}
                 />
               :
               <Redirect to='/login'/>
@@ -238,6 +239,19 @@ class App extends React.Component {
                 handleUpdateEntry={this.handleUpdateEntry}
                 history={history}
                 location={location}
+              />
+            }/>
+            <Route exact path='/detail' render={({ history, location }) =>
+              <JournalDetailPage
+                spread={this.state.spread}
+                spreadData={this.state.spreadData}
+                history={history}
+                location={location}
+                entries={this.state.entries}
+                handleDeleteEntry={this.handleDeleteEntry}
+                user={this.state.user}
+                date={this.state.date}
+                returnSpread={this.returnSpread}
               />
             }/>
             <Route path='/deck' component={() => {

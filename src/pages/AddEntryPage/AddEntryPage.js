@@ -10,6 +10,8 @@ class AddEntryPage extends Component {
             present: this.props.spreadData[1][1],
             future: this.props.spreadData[2][1],
             entry: '',
+            spreadData: this.props.spreadData,
+            spread: this.props.spread
         }
     }
 

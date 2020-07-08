@@ -1,16 +1,10 @@
 import React, { Component } from 'react'
-import './Card.scss'
+import './TarotCard.scss'
 
-export default class Card extends Component {
+export default class TarotCard extends Component {
 
-    constructor(props) {
-        super(props)
-
-        let image = 'images/' + this.props.value.assetName + '.png'
-
-        this.state = {
-            image: image
-        }
+    state = {
+        image: 'images/' + this.props.value.assetName + '.png'
     }
 
     render() {
@@ -32,8 +26,8 @@ export default class Card extends Component {
                             {this.props.value.name}
                         </p>
                     </div>
-                    <p className='card-description'>{this.props.value.description}</p>
-                    <p className='copyright'>Artwork and Text Copyright Ⓒ Rachel Howe, 2020</p>
+                    <p className='card-description'>{this.props.value.description} • <span className='copyright'>Artwork & Text Copyright Ⓒ Small Spells, 2020</span></p>
+                    <p className='copyright'></p>
                 </div>
             </div>
         )

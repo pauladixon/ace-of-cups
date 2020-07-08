@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Controls.scss'
 
 export default class Controls extends Component {
 
@@ -8,10 +9,10 @@ export default class Controls extends Component {
 
     render() {
         return (
-            <div>
+            <div className='arrow'>
                 <button 
                     className='invert-button' 
-                    onClick={() => this.props.shuffleCards(3,0)}
+                    onClick={() => this.props.shuffleCards()}
                 >
                     →
                 </button>

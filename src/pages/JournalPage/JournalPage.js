@@ -1,5 +1,5 @@
 import React from 'react'
-import Entry from '../../components/Entry/Entry'
+import JournalListItem from '../../components/JournalListItem/JournalListItem'
 import './JournalPage.scss'
 
 function JournalPage(props) {
@@ -8,11 +8,12 @@ function JournalPage(props) {
         return (
             <div className='entries'>
                 {props.entries.map(entry =>
-                    <Entry
+                    <JournalListItem
                         entry={entry}
                         key={entry._id}
                         user={props.user}
                         handleDeleteEntry={props.handleDeleteEntry}
+                        returnSpread={props.returnSpread}
                     />
                 )}
             </div>

@@ -1,4 +1,6 @@
 
+@import url("https://use.typekit.net/njm5wbh.css");
+
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -9,8 +11,6 @@ html {
           box-sizing: inherit;
 }
 
-  @import url("https://use.typekit.net/njm5wbh.css");
-
 body {
   margin: 20px 0;
   padding: 0;
@@ -19,7 +19,8 @@ body {
   color: black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: Futura, sans-serif;
+  font-family: futura-pt, sans-serif;
+  font-weight: 500;
 }
 
 .container {
@@ -142,10 +143,15 @@ footer {
   position: fixed;
   left: 0;
   bottom: 0;
-  margin: 50px 10px 10px 10px;
+  padding: 50px 10px 10px 10px;
   width: 100%;
   font-size: 10px;
-
+  background-image : linear-gradient(to bottom, 
+                    rgba(255,255,255, 0), 
+                    rgba(255,255,255, 1) 50%);
+  height: 20px;
+  display: flex;
+  align-items: flex-end;
 }
 
 .body {

@@ -95,7 +95,7 @@ class EditEntryPage extends Component {
                         >Update Journal Entry
                         </button>
                         <div>
-                            <Link to='/'>Cancel</Link>
+                            <Link to='/journal'>Cancel</Link>
                         </div>
                     </div>
                 </form>

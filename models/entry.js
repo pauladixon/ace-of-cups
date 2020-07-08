@@ -24,6 +24,12 @@ const entrySchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: "User"
+    },
+    spread: {
+        type: Array
+    },
+    spreadData: {
+        type: Array
     }
 }, {
     timestamps: true
