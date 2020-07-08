@@ -1,27 +1,49 @@
-import React from 'react'
-import JournalListItem from '../../components/JournalListItem/JournalListItem'
+import React, { Component } from 'react'
+import * as entriesAPI from '../../utils/entriesService'
+import { Link } from 'react-router-dom'
+// import JournalListItem from '../../components/JournalListItem/JournalListItem'
 import './JournalPage.scss'
+import moment from 'moment'
 
-function JournalPage(props) {
-    
-    if(props.entries.length) {
-        return (
-            <div className='entries'>
-                {props.entries.map(entry =>
-                    <JournalListItem
-                        entry={entry}
-                        key={entry._id}
-                        user={props.user}
-                        handleDeleteEntry={props.handleDeleteEntry}
-                        returnSpread={props.returnSpread}
-                    />
-                )}
-            </div>
-        )
-    } else {
-        return (
-            <p>No Journal Entries Yet</p>
-        )
+
+class JournalPage extends Component {
+
+
+    async componentDidMount() {
+        const entries = await entriesAPI.index()
+        this.setState({ entries })
+    }
+
+    render (){
+        if(this.props.entries.length) {
+            return (
+                <>                
+                    <p className='journal-title'>Journal Entries</p>
+                    <div className='entries'>
+                        {this.props.entries.map(entry =>
+                            <Link to={{ pathname: '/detail', state: { entry } }} >
+                                <div key={entry.id} className='line-item'>
+                                    <div className='row'>
+                                        <p className='date left' key={entry.id}>{moment(entry.date).format('LL')} </p>
+                                        <div className='right'>
+                                            <p key={entry.id}>{entry.past}</p>
+                                            <p>•</p>
+                                            <p key={entry.id}> {entry.present}</p>
+                                            <p>•</p>
+                                            <p key={entry.id}> {entry.future}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Link>
+                        )}
+                    </div>
+                </>
+            )
+        } else {
+            return (
+                <p className='journal-empty'>No Journal Entries Yet</p>
+            )
+        }
     }
 }
 

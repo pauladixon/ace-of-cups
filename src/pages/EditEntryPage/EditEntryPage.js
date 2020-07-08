@@ -28,7 +28,7 @@ class EditEntryPage extends Component {
         return (
             <>
                 <form 
-                    className='entry'
+                    className='new-entry'
                     ref={this.formRef} 
                     autoComplete='off' 
                     onSubmit={this.handleSubmit}

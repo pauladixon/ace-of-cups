@@ -1,18 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './JournalEntry.scss'
+import moment from 'moment'
 
 
 const JournalEntry = ({entry, spread, handleDeleteEntry, user}) => {
     return (
         <>
-            <div key={entry.id} className='entry'>
-                <p className='journal-row date' key={entry.id}>{entry.date}</p>
+            <div key={entry.id} className='journal-entry'>
+                <div className='top'>
+                    <p className='journal-date' key={entry.id}>{moment(entry.date).format('LL')}</p>
+                    <div className='entry-text' key={entry.id}>{entry.entry}</div>
+                </div>
                 <div>
                     {spread}
                 </div>
-                <div className='right' key={entry.id}>{entry.entry}</div>
-
                 <div className='card-buttons'>
                     <div key={entry.id}>
                         {entry.user === user._id ?
@@ -21,6 +23,10 @@ const JournalEntry = ({entry, spread, handleDeleteEntry, user}) => {
                         <></>
                         }
                     </div>
+                    <Link 
+                        to={{ pathname: '/journal'}}>
+                            <button>Back to Journal</button>
+                    </Link>
                     {entry.user === user._id ?
                         <Link 
                             to={{ pathname: '/edit', state: {entry} }}>

@@ -4,9 +4,17 @@
     padding: 0px 20px;
 }
 
-.entry {
-    margin-top: 0px;
+.new-entry {
+    margin-top: 10px;
     padding: 30px 30px;
+    border: 1px solid black;
+    min-width: 500px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
+    border-radius: 10px;
+    margin-right: 20%;
+    margin-left: 20%;
+    margin-bottom: 10%;
 }
 
 label {

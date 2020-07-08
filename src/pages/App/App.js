@@ -119,22 +119,12 @@ class App extends React.Component {
     }), () => this.props.history.push('/journal'))
   }
 
-  getCurrentDate(){
-    let newDate = new Date()
-    let date = newDate.getDate()
-    let month = newDate.getMonth() + 1
-    let year = newDate.getFullYear()
-    return `${year}${''}${month<10?`0${month}`:`${month}`}${''}${date}`
-  }
-
   // lifecycle methods //
 
   async componentDidMount() {
     document.addEventListener('mousedown', this.handleClickOutside)
     const entries = await entriesAPI.index()
     this.setState({ entries })
-    const date = await this.getCurrentDate()
-    this.setState({ date })
   }
 
   async componentWillUnmount() {
