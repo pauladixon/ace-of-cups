@@ -35,7 +35,7 @@ class EditEntryPage extends Component {
                 >
                     <div className='add-entry'><label>Date</label>
                         <input
-                            className='form-line'
+                            className='form-line form-date'
                             name='date'
                             type='date'
                             value={this.state.formData.date}

@@ -4,28 +4,13 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
+    text-align: justify;
+    width: 280px;
+    line-height: 1.4;
   
     .intro {
-        width: 300px;
-        margin-bottom: 50px;
+        margin-top: 10px;
+        margin-bottom: 60px;
     }
-  
-    .go {
-        border-radius: 4px;
-        color: white;
-        display: flex;
-        background-color: black;
-        text-align: center;
-        padding: 12px 20px;
-        font-size: 16px;
-        font-family: Futura;
-  
-  
-        &:hover, &:focus {
-        cursor: pointer;
-        background-color: white;
-        color: black;
-        border: 1px solid black;
-        }
-    }
+
 }

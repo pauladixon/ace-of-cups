@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './Controls.scss'
 
 export default class Controls extends Component {
 
@@ -14,7 +13,7 @@ export default class Controls extends Component {
                     className='invert-button' 
                     onClick={() => this.props.shuffleCards(3,0)}
                 >
-                    GO →
+                    →
                 </button>
             </div>
         )

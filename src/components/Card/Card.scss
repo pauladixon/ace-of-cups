@@ -2,6 +2,7 @@
     max-width: 200px;
     box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
     border-radius: 15px;
+    margin-top: 40px;
 }
 
 .card-row {
@@ -10,10 +11,44 @@
     justify-content: center;
     align-items: center;
     width: 100vw;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 .card-right {
-    margin-left: 70px;
-    max-width: 340px;
+    margin-left: 120px;
+    max-width: 230px;
+}
+
+.copyright {
+    font-size: 11.4px;
+    opacity: 30%;
+    margin: 0px;
+    width: 230px;
+    text-align: center;
+    text-align: justify;
+    font-family: futura-pt, sans-serif;
+    font-weight: 400;
+}
+
+.position-label {
+    font-size: 13px;
+    text-align: left;
+    letter-spacing: .05em;
+    font-family: futura-pt, sans-serif;
+    font-weight: 500;
+}
+
+.card-label {
+    font-size: 17px;
+    letter-spacing: .08em;
+}
+
+.card-description {
+    font-size: 16px;
+    letter-spacing: .01em;
+    text-align: justify;
+    line-height: 1.3;
+    margin: 10px 0px 8px 0px;
+    font-family: futura-pt, sans-serif;
+    font-weight: 400;
 }

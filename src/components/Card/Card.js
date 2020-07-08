@@ -16,10 +16,24 @@ export default class Card extends Component {
     render() {
         return (
             <div className='card-row'>
-                <img className='card'src={this.state.image} alt={this.props.value.name}/>
+                <div className='card-left'>
+                    <img 
+                        className='card' 
+                        src={this.state.image} 
+                        alt={this.props.value.name}
+                    />
+                </div>
                 <div className='card-right'>
-                    <p>{this.props.position} :: {this.props.value.name}</p>
-                    <p>{this.props.value.description}</p>
+                    <div>
+                        <p className='position-label'>
+                            {this.props.position}  ::  
+                        </p> 
+                        <p className='card-label'>
+                            {this.props.value.name}
+                        </p>
+                    </div>
+                    <p className='card-description'>{this.props.value.description}</p>
+                    <p className='copyright'>Artwork and Text Copyright Ⓒ Rachel Howe, 2020</p>
                 </div>
             </div>
         )

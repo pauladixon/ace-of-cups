@@ -37,9 +37,9 @@ class AddEntryPage extends Component {
                     autoComplete='off' 
                     onSubmit={this.handleSubmit}
                 >
-                    <div className='add-entry'><label>Date</label>
+                    <div className='add-entry'><label>Date of Reading ::</label>
                         <input
-                            className='form-line'
+                            className='form-line form-date'
                             name='date'
                             type='date'
                             value={this.state.formData.date}
@@ -48,7 +48,8 @@ class AddEntryPage extends Component {
                         >
                         </input>
                     </div>
-                    <div className='add-entry'><label>Card in the Past Position</label>
+                    <div className='add-entry'>
+                        <label>Card in the Past Position ::</label>
                         <input
                             className='form-line'
                             name='past'
@@ -59,7 +60,8 @@ class AddEntryPage extends Component {
                         >
                         </input>
                     </div>
-                    <div className='add-entry'><label>Card in the Present Position</label>
+                    <div className='add-entry'>
+                        <label>Card in the Present Position ::</label>
                         <input
                             className='form-line'
                             name='present'
@@ -70,7 +72,8 @@ class AddEntryPage extends Component {
                         >
                         </input>
                     </div>
-                    <div className='add-entry'><label>Card in the Future Position</label>
+                    <div className='add-entry'>
+                        <label>Card in the Future Position :: </label>
                         <input
                             className='form-line'
                             name='future'
@@ -81,7 +84,8 @@ class AddEntryPage extends Component {
                         >
                         </input>
                     </div>
-                    <div className='add-entry'><label>Journal Entry</label>
+                    <div className='add-entry'>
+                        <label>Journal Entry ::</label>
                         <textarea
                             className='form-line'
                             name='entry'

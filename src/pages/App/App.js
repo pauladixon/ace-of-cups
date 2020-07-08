@@ -201,7 +201,7 @@ class App extends React.Component {
                 </Link>
               </>
             }/>
-            <Route exact path='/reading' render={(spread) =>
+            <Route exact path='/reading' render={() =>
               <>
                 <ReadingPage
                   spreadData={this.state.spreadData}
@@ -209,7 +209,7 @@ class App extends React.Component {
                 />
               </>
             }/>
-            <Route exact path='/journal' render={({history, location}) =>
+            <Route exact path='/journal' render={({ history, location }) =>
               userService.getUser() ?
                 <JournalPage
                   entries={this.state.entries}
@@ -222,7 +222,7 @@ class App extends React.Component {
               :
               <Redirect to='/login'/>
             }/>
-            <Route exact path='/addentry' render={(user) =>
+            <Route exact path='/addentry' render={() =>
               userService.getUser() ?
                 <AddEntryPage 
                   handleAddEntry={this.handleAddEntry}
@@ -233,7 +233,7 @@ class App extends React.Component {
               :
               <Redirect to='/login'/>
             }/>
-            <Route exact path='/edit' render={({history, location}) =>
+            <Route exact path='/edit' render={({ history, location }) =>
               <EditEntryPage
                 handleUpdateEntry={this.handleUpdateEntry}
                 history={history}
@@ -262,7 +262,7 @@ class App extends React.Component {
           </Switch>
         </div>
         <footer>
-          Copyright Ⓒ Paula Dixon, 2020
+          Site Copyright Ⓒ Paula Dixon, 2020 &nbsp; • &nbsp; Tarot Copyright Ⓒ Rachel Howe, 2020
         </footer>
       </div>
     ) 
