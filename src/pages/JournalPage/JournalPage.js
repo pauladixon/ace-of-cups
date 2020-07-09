@@ -19,9 +19,9 @@ class JournalPage extends Component {
                 <>                
                     <p className='journal-title'>Journal Entries</p>
                     <div className='entries'>
-                        {this.props.entries.map(entry =>
+                        {this.props.entries.map((entry, i) =>
                             <Link to={{ pathname: '/detail', state: { entry } }} >
-                                <div key={entry.id} className='line-item' lastchild=''>
+                                <div key={entry.id} className='line-item' style={ (i === this.props.entries.length - 1) ? {borderBottom:0} : {}}>
                                     <div className='row'>
                                         <div className='left'>
                                             <p className='date' key={entry.id}>{moment(entry.date).format('LL')} </p>
