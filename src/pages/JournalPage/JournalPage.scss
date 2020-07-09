@@ -4,7 +4,6 @@
     justify-content: center;
     align-items: center;
     flex-flow: row wrap;
-    height: 100%;
     margin: 0px 0px;
     font-size: 15px;
     letter-spacing: .03em;
@@ -47,6 +46,13 @@
     background-color: black;
 }
 
+// .line-item:first-child:hover {
+//     color: white;
+//     background-color: black;
+//     border-top-left-radius: 10px;
+//     border-top-right-radius: 10px;
+// }
+
 .row {
     display: flex;
     justify-content: center;
@@ -59,7 +65,7 @@
     align-items: center;
     justify-content: space-around;
     width: 100%;
-    padding: 0px 0px 0px 15px;
+    padding: 0px 0px 0px 20px;
 }
 
 .date {
