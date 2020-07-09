@@ -13,7 +13,10 @@
   and (orientation: portrait) { 
     
     .mobile-button {
-        width: 194px;
+        width: 180px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .button-container {
