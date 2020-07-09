@@ -89,7 +89,7 @@ class AddEntryPage extends Component {
                     <div className='add-entry'>
                         <label>Journal Entry ::</label>
                         <textarea
-                            className='form-line'
+                            className='form-line entry-form'
                             name='entry'
                             type='text'
                             value={this.state.formData.entry}

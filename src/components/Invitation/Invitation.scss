@@ -14,3 +14,20 @@
     }
 
 }
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+
+    .home {
+        width: 250px;
+        font-size: 14px;
+        margin-top: 50px;
+    }
+
+    .intro {
+        margin-top: 0px;
+    }
+  }

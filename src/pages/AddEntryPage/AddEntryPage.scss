@@ -28,3 +28,53 @@ label {
     height: 40px;
     font-size: 14px;
 }
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+    
+    .add-entry {
+        display: flex;
+        flex-flow: row wrap;
+        padding: 0px 0px;
+        width: 250px;
+    }
+    
+    .new-entry {
+        min-width: 150px;
+        margin-top: 50px;
+        padding: 30px 30px;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+        margin-right: 2%;
+        margin-left: 2%;
+        margin-bottom: 10%;
+    }
+    
+    label {
+        margin-top: 20px;
+        font-size: 12px;
+        margin-left: 10px;
+    }
+    
+    .form-date {
+        width: 189px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .form-line {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .entry-form {
+        margin-bottom: 30px;
+    }
+}

@@ -36,7 +36,7 @@ class SignupForm extends Component {
     render() {
         return (
             <div>
-                <header>Sign Up</header>
+                <p className='contact-title'>Sign Up</p>
                 <form onSubmit={this.handleSubmit}>
                     <div className='form signup'>
                         <input 

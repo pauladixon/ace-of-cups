@@ -4,3 +4,23 @@
     justify-content: space-between;
     margin: 0px 30px 0px 20px;
 }
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+ 
+    .form-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: 0px 30px 0px 20px;
+        width: 100%;
+    }
+
+    .update-button {
+        margin-right: 10px;
+        width: 160px;
+    }
+  }

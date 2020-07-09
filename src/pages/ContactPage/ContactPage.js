@@ -9,7 +9,7 @@ class ContactPage extends Component {
             <div>
                 <p className='contact-title'>Contact Us</p>
                 <p className='contact-info'>
-                    For more information on this tarot deck, Small Spells, and Rachel Howe's other work, visit her site below.
+                    For more information on this tarot deck, Small Spells, and Rachel Howe's other work, visit her pages below.
                     <div className='social-icons'>
                         <SocialIcon 
                             style={{ height: 45, width: 45 }}
@@ -24,7 +24,7 @@ class ContactPage extends Component {
                             url="https://www.smallspells.com/" 
                         />
                     </div>
-                    To learn more about the creator of this app, check out her portfolio or instagram below. Feel free to reach out with any questions!
+                    To learn more about Paula Dixon, the creator of this app, explore below and feel free to reach out with any questions!
                     <div className='social-icons'>
                         <SocialIcon 
                             style={{ height: 45, width: 45 }}

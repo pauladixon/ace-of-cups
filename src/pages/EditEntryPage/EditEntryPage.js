@@ -90,6 +90,7 @@ class EditEntryPage extends Component {
                     </div>
                     <div className='form-buttons'>
                         <button
+                            className='update-button'
                             type='submit'
                             disabled={this.state.invalidForm}
                         >Update Journal Entry

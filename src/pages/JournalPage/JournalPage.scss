@@ -27,7 +27,7 @@
 }
 
 .line-item {
-    width: 550px;
+    width: 600px;
     box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
     border: 1px solid black;
     margin-top: 3px;
@@ -59,4 +59,78 @@
 
 .date {
     font-size: 16px;
+}
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+
+    .entries {
+        margin-bottom: 10%;
+    }
+
+    .journal-title {
+        font-size: 20px;
+        letter-spacing: .1em;
+        margin-top: 50px;
+        margin-bottom: 0px;
+    }
+
+    .journal-empty {
+        font-size: 20px;
+        letter-spacing: .1em;
+        margin-top: 100px;
+    }
+
+    .line-item {
+        width: 220px;
+        margin-top: 30px;
+        border-radius: 10px;
+        padding: 10px 0px;
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: row wrap;
+        padding: 0px;
+        margin: 0px 0px;
+    }
+
+    .right {
+        font-size: 17px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: row wrap;
+        margin: 0px 0px 10px 0px;
+        padding: 20px 0px 0px 0px;
+        width: 300%;
+        line-height: 0.0;
+        border-top: 1px solid black;
+    }
+
+    .date {
+        font-size: 18px;
+    }
+
+    .dot {
+        opacity: 0%;
+        // font-size: 0px;
+    }
+
+    .one {
+        width: 200px;
+        margin-bottom: -10px;
+    }
+
+    .card-name {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
 }

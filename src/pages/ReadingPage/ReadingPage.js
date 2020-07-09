@@ -12,7 +12,7 @@ class ReadingPage extends Component {
                 </div>
                 <Link to='/addentry'>
                     <div className='button-container'>
-                        <button className='invert-button'>Add Reading to Journal</button>
+                        <button className='invert-button mobile-button'>Add Reading to Journal</button>
                     </div>
                 </Link>
             </div>

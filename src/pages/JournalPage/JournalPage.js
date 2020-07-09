@@ -25,11 +25,11 @@ class JournalPage extends Component {
                                     <div className='row'>
                                         <p className='date left' key={entry.id}>{moment(entry.date).format('LL')} </p>
                                         <div className='right'>
-                                            <p key={entry.id}>{entry.past}</p>
-                                            <p>•</p>
-                                            <p key={entry.id}> {entry.present}</p>
-                                            <p>•</p>
-                                            <p key={entry.id}> {entry.future}</p>
+                                            <p className='card-name one' key={entry.id}>{entry.past}</p>
+                                            <p className='dot'>•</p>
+                                            <p className='card-name one' key={entry.id}> {entry.present}</p>
+                                            <p className='dot'>•</p>
+                                            <p className='card-name' key={entry.id}> {entry.future}</p>
                                         </div>
                                     </div>
                                 </div>

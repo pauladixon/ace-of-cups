@@ -26,3 +26,21 @@
     justify-content: space-between;
     margin: 10px 90px 30px 90px;
 }
+
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+
+    .contact-title {
+        margin-top: 50px;
+    }
+
+    .contact-info {
+        width: 250px;
+        font-size: 14px;
+    }
+
+}
