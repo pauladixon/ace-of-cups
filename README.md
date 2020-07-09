@@ -22,14 +22,14 @@ Utilizing Rachel Howe’s Small Spells tarot deck and writings, this app aims to
 
 ## Technologies Used
 
--_Mongoose_
--_MongoDB_
--_Express_
--_React_
--_Node_
--_Javascript_
--_HTML_
--_SCSS_
+- _Mongoose_
+- _MongoDB_
+- _Express_
+- _React_
+- _Node_
+- _Javascript_
+- _HTML_
+- _SCSS_
 
 
 ## Next Steps 
