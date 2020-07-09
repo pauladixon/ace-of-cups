@@ -129,6 +129,8 @@ class App extends React.Component {
 
   async componentWillUnmount() {
     document.removeEventListener('mousedown', this.handleClickOutside)
+    const entries = await entriesAPI.index()
+    this.setState({ entries })
   }
 
   render() {
@@ -251,6 +253,7 @@ class App extends React.Component {
             <Route exact path='/contact' render={() =>
               <ContactPage/>
             }/>
+            
             <Route exact path='/login' render={({ history }) =>
               <LoginPage
                 history={history}

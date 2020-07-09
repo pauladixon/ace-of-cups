@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import * as entriesAPI from '../../utils/entriesService'
 import { Link } from 'react-router-dom'
-// import JournalListItem from '../../components/JournalListItem/JournalListItem'
 import './JournalPage.scss'
 import moment from 'moment'
 
