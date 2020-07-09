@@ -11,6 +11,11 @@
     text-align: justify;
     font-family: futura-pt, sans-serif;
     font-weight: 500;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 650px;
+    margin-bottom: 10%;
 }
 
 .journal-title {
@@ -27,12 +32,18 @@
 }
 
 .line-item {
-    width: 600px;
-    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
-    border: 1px solid black;
-    margin-top: 3px;
-    border-radius: 10px;
-    padding: 10px 15px;
+    width: 650px;
+    border-bottom: 1px solid black;
+    height: 65px;
+}
+
+.entries:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.entries:last-child {
+    border-bottom: 0px;
 }
 
 .line-item:hover {
@@ -42,23 +53,44 @@
 
 .row {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 0px;
-    margin: 0px 15px;
+    height: 65px;
 }
 
-.right {
-    text-align: right;
+.top-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 70%;
-    margin-right: 0px;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0px 0px 0px 15px;
 }
 
 .date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 16px;
+    min-width: 150px;
+    margin-left: -8px;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid black;
+    min-height: 100%;
+    width: 150px;
+    padding: 5px 10px 5px 0px;
+    margin: 0px;
+}
+
+.right {
+    width: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media only screen 
@@ -68,14 +100,16 @@
   and (orientation: portrait) { 
 
     .entries {
+        margin-top: 40px;
         margin-bottom: 10%;
+        width: 300px;
     }
 
     .journal-title {
         font-size: 20px;
         letter-spacing: .1em;
         margin-top: 50px;
-        margin-bottom: 0px;
+        margin-bottom: 20px;
     }
 
     .journal-empty {
@@ -84,53 +118,60 @@
         margin-top: 100px;
     }
 
+
     .line-item {
-        width: 220px;
-        margin-top: 30px;
-        border-radius: 10px;
-        padding: 10px 0px;
+        max-width: 300px;
+        height: 115px;
+        border-bottom: 1px solid black;
+        padding: 0px 0px 0px 0px;
     }
 
     .row {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-flow: row wrap;
-        padding: 0px;
-        margin: 0px 0px;
+        height: 100%;
+        width: 100%;
     }
-
-    .right {
-        font-size: 17px;
+    
+    .top-row {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-flow: row wrap;
-        margin: 0px 0px 10px 0px;
-        padding: 20px 0px 0px 0px;
-        width: 300%;
-        line-height: 0.0;
-        border-top: 1px solid black;
+        margin-left: -40px;
     }
 
     .date {
-        font-size: 18px;
+        font-size: 13px;
+        margin-left: 20px;
     }
 
     .dot {
         opacity: 0%;
-        // font-size: 0px;
+        font-size: 0px;
     }
 
-    .one {
-        width: 200px;
-        margin-bottom: -10px;
+    .left {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid black;
+        min-height: 100%;
+        max-width: 150px;
+    }
+
+    .right {
+        font-size: 14px;
+        align-items: center;
+        justify-content: center;
+        flex-flow: row wrap;
+        margin-left: 15px;
     }
 
     .card-name {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
+        width: 180px;
+        line-height: 0.0;
+        margin-left: 0px;
     }
 }

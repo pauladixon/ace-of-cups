@@ -23,13 +23,17 @@ class JournalPage extends Component {
                             <Link to={{ pathname: '/detail', state: { entry } }} >
                                 <div key={entry.id} className='line-item'>
                                     <div className='row'>
-                                        <p className='date left' key={entry.id}>{moment(entry.date).format('LL')} </p>
+                                        <div className='left'>
+                                            <p className='date' key={entry.id}>{moment(entry.date).format('LL')} </p>
+                                        </div>
                                         <div className='right'>
-                                            <p className='card-name one' key={entry.id}>{entry.past}</p>
-                                            <p className='dot'>•</p>
-                                            <p className='card-name one' key={entry.id}> {entry.present}</p>
-                                            <p className='dot'>•</p>
-                                            <p className='card-name' key={entry.id}> {entry.future}</p>
+                                            <div className='top-row'>
+                                                <p className='card-name one' key={entry.id}>{entry.past}</p>
+                                                <p className='dot'>•</p>
+                                                <p className='card-name one' key={entry.id}> {entry.present}</p>
+                                                <p className='dot'>•</p>
+                                                <p className='card-name' key={entry.id}> {entry.future}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
