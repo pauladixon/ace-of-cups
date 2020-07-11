@@ -10,12 +10,6 @@ class JournalPage extends Component {
         hover: false
     }
 
-    handleHover() {
-        this.setState({
-            hover: !this.state.hover
-        })
-    }
-
     async componentDidMount() {
         const entries = await entriesAPI.index()
         this.setState({ entries })
@@ -47,15 +41,13 @@ class JournalPage extends Component {
                                         ((i === this.props.entries.length - 1) ? 
                                             {borderBottom: 0} 
                                         : 
-                                            {}), 
-                                        ((i === 0) ? 
-                                            hoverFirstChild 
-                                        : 
-                                            {}), 
+                                            {}
+                                        ), 
                                         ((i === this.props.entries.length - 1) ? 
                                             hoverLastChild 
                                         : 
-                                            {})
+                                            (i === 0) ? hoverFirstChild : {}
+                                        )
                                     }
                                 >
                                     <div className='row'>
