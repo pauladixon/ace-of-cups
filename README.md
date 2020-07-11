@@ -10,9 +10,9 @@
 
 ## Screenshots:
 
-![Wireframe1](https://i.imgur.com/AgPfder.png)
-![Wireframe2](https://i.imgur.com/cEkSzu7.png)
-![Wireframe3](https://i.imgur.com/0Sli6cu.png)
+![Screenshot1](https://i.imgur.com/AgPfder.png)
+![Screenshot2](https://i.imgur.com/cEkSzu7.png)
+![Screenshot3](https://i.imgur.com/0Sli6cu.png)
 
 ## Description:
 
