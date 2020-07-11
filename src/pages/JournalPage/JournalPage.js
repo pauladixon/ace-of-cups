@@ -6,7 +6,9 @@ import moment from 'moment'
 
 
 class JournalPage extends Component {
-
+    state = {
+        hover: false
+    }
 
     async componentDidMount() {
         const entries = await entriesAPI.index()
@@ -14,6 +16,17 @@ class JournalPage extends Component {
     }
 
     render (){
+        let hoverFirstChild;
+        let hoverLastChild;
+
+        if (this.state.hover) {
+            hoverLastChild = {}
+            hoverFirstChild = {}
+        } else {
+            hoverLastChild = { borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }
+            hoverFirstChild = { borderTopLeftRadius: 10, borderTopRightRadius: 10 }
+        }
+
         if(this.props.entries.length) {
             return (
                 <>                
@@ -21,7 +34,24 @@ class JournalPage extends Component {
                     <div className='entries'>
                         {this.props.entries.map((entry, i) =>
                             <Link to={{ pathname: '/detail', state: { entry } }} >
-                                <div key={entry.id} className='line-item' style={ (i === this.props.entries.length - 1) ? {borderBottom:0} : {}}>
+                                <div 
+                                    key={entry.id} 
+                                    className='line-item' 
+                                    style={
+                                        ((i === this.props.entries.length - 1) ? 
+                                            {borderBottom: 0} 
+                                        : 
+                                            {}), 
+                                        ((i === 0) ? 
+                                            hoverFirstChild 
+                                        : 
+                                            {}), 
+                                        ((i === this.props.entries.length - 1) ? 
+                                            hoverLastChild 
+                                        : 
+                                            {})
+                                    }
+                                >
                                     <div className='row'>
                                         <div className='left'>
                                             <p className='date' key={entry.id}>{moment(entry.date).format('LL')} </p>
