@@ -18,8 +18,9 @@
 .form-links {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     font-size: 12px;
+    margin: 0px 10px;
 }
 
 @media only screen 
@@ -51,6 +52,6 @@
     }
 
     .form-shift {
-        margin-right: 15px;
+        margin-right: 20px;
     }
 }
