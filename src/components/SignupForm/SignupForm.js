@@ -37,7 +37,7 @@ class SignupForm extends Component {
         return (
             <div>
                 <p className='contact-title'>Sign Up</p>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} className='form-shift'>
                     <div className='form signup'>
                         <input 
                             className='form-line' 

@@ -31,7 +31,7 @@ class LoginPage extends Component {
         return (
             <div>
                 <p className='contact-title'>Log In</p>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} className='form-shift'>
                     <div className='form login'>
                         <div>
                             <input 

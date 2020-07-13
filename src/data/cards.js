@@ -521,7 +521,7 @@ export const cards = [
     name: "Three of Pentacles",
     assetName: "pe03",
     suit: "pentacles",
-    description: "Collaboration. A joint effort, working with others. Teamwork. A balanced approach to a project. Feeling valued within your group, or needing to see thevaluein others around you. The bees with the hive show the benefits of individuals working together for a greater purpose. The ladder symbolizes the upward trajectory of the triangular dynamic. Two forces coming together create a third energy, greater than the two would be un-joined, as shown by the clasped hands. The overlapping circles show how finding commonalities in differences may be needed.",
+    description: "Collaboration. A joint effort, working with others. Teamwork. A balanced approach to a project. Feeling valued within your group, or needing to see the value in others around you. The bees with the hive show the benefits of individuals working together for a greater purpose. The ladder symbolizes the upward trajectory of the triangular dynamic. Two forces coming together create a third energy, greater than the two would be un-joined, as shown by the clasped hands. The overlapping circles show how finding commonalities in differences may be needed.",
     type: "minor",
     desc: "A sculptor at his work in a monastery. Compare the design which illustrates the Eight of Pentacles. The apprentice or amateur therein has received his reward and is now at work in earnest. "
   },
