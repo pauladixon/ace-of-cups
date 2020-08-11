@@ -35,12 +35,22 @@
   and (orientation: portrait) { 
 
     .contact-title {
-        margin-top: 30px;
+        margin-top: 27px;
+        font-size: 18px;
+        letter-spacing: .1em;
+        margin-top: 42px;
+        margin-bottom: 30px;
     }
 
     .contact-info {
-        width: 250px;
-        font-size: 14px;
+        width: 210px;
+        font-size: 12px;
     }
 
+    .social-icons {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 10px 60px 30px 60px;
+    }
 }

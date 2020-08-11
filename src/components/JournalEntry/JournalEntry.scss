@@ -53,18 +53,27 @@
   and (orientation: portrait) { 
 
     .journal-entry {
-        margin-top: 50px;
-        width: 300px;
+        margin-top: 45px;
+        width: 290px;
+    }
+
+    .journal-date {
+        font-size: 15px;
+        letter-spacing: .1em;
+        margin-top: 0px;
     }
 
     .top {
         margin-top: 0px;
+        margin-bottom: 40px;
     }
 
     .entry-text {
-        font-size: 17px;
-        margin: 10px 0px 0px 0px;
-        width: 250px;
+        font-size: 14px;
+        margin: 5px 0px 0px 0px;
+        padding-bottom: 20px;
+        width: 100%;
+        border-bottom: black 1px solid;
     }
 
     .card-buttons {
@@ -73,10 +82,12 @@
         width: 100%;
         align-items: center;
         margin: 20px 20px 0px 20px;
+        font-size: 11px;
     }
 
     .detail-button {
         margin: 0px 5px;
-        height: 50px;
+        height: 40px;
+        font-size: 11px;
     }
 }

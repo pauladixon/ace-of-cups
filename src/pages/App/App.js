@@ -268,9 +268,6 @@ class App extends React.Component {
             }/>
           </Switch>
         </div>
-        <footer>
-          Site Copyright Ⓒ Paula Dixon, 2020 &nbsp; • &nbsp; Tarot Copyright Ⓒ Rachel Howe, 2020
-        </footer>
       </div>
     ) 
   }

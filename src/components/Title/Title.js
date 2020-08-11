@@ -5,7 +5,6 @@ import './Title.scss'
 const Title = () => {
     return (
         <>
-            {/* <Link to='' className='title'>Ace of Cups</Link> */}
             <Link to=''>
                 <img 
                     className='title' 
