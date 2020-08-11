@@ -18,19 +18,19 @@ const JournalEntry = ({entry, spread, handleDeleteEntry, user}) => {
                 <div className='card-buttons'>
                     <div key={entry.id}>
                         {entry.user === user._id ?
-                            <button className='detail-button' onClick={() => handleDeleteEntry(entry._id)}>Delete</button>
+                            <button className='detail-button delete' onClick={() => handleDeleteEntry(entry._id)}>Delete</button>
                             :
                         <></>
                         }
                     </div>
                     <Link 
                         to={{ pathname: '/journal'}}>
-                            <button className='detail-button'>Back to Journal</button>
+                            <button className='detail-button back'>Back to Journal</button>
                     </Link>
                     {entry.user === user._id ?
                         <Link 
                             to={{ pathname: '/edit', state: {entry} }}>
-                                <button className='detail-button' key={entry.id}>Edit</button>
+                                <button className='detail-button edit' key={entry.id}>Edit</button>
                         </Link>
                         :
                         <></>
