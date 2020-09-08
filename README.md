@@ -7,8 +7,6 @@
 
 [View the App](https://ace-of-cups.herokuapp.com/)
 
-check
-
 ## Screenshots:
 
 ![Screenshot1](https://i.imgur.com/AgPfder.png)
