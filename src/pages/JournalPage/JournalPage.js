@@ -42,6 +42,7 @@ class JournalPage extends Component {
                                             {borderBottom: 0} 
                                         : 
                                             {}
+                                        // eslint-disable-next-line
                                         ), 
                                         ((i === this.props.entries.length - 1) ? 
                                             hoverLastChild 
