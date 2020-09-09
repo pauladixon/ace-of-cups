@@ -237,8 +237,7 @@ footer {
 
   .button {
     @include styling();
-    padding: 2px 18.5px 8px 18.5px;
-    margin-left: -5px;
+    padding: 0px 22.5px 8px 22.5px;
     width: 10px;
     outline: 0;
     font-weight: bolder;
@@ -290,6 +289,6 @@ footer {
     padding: 9px 14px;
     display: flex;
     align-items: center;
-    font-size: 16px;
+    font-size: 14px;
   }
 }
