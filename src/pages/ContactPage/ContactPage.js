@@ -40,7 +40,11 @@ class ContactPage extends Component {
                     </div>
 
                 </p>
+                <footer>
+                    Site Copyright Ⓒ Paula Dixon, 2020 &nbsp; • &nbsp; Tarot Copyright Ⓒ Rachel Howe, 2020
+                </footer>
             </div>
+            
         )
     }
 }
