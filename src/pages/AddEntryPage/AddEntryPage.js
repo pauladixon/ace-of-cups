@@ -94,7 +94,7 @@ class AddEntryPage extends Component {
                             type='text'
                             value={this.state.formData.entry}
                             onChange={this.handleChange}
-                            rows="10" cols="19"
+                            rows="3" cols="19"
                         >
                         </textarea>
                     </div>
