@@ -30,7 +30,6 @@ class JournalPage extends Component {
         if(this.props.entries.length) {
             return (
                 <>                
-                    <p className='journal-title'>Journal Entries</p>
                     <div className='entries'>
                         {this.props.entries.map((entry, i) =>
                             <Link to={{ pathname: '/detail', state: { entry } }} >
