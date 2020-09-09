@@ -6,7 +6,7 @@ import { SocialIcon } from 'react-social-icons'
 class ContactPage extends Component {
     render() {
         return (
-            <div className='contact-page'>
+            <div>
                 <p className='contact-info'>
                     For more information on this tarot deck, Small Spells, and Rachel Howe's other work, visit her pages below.
                     <div className='social-icons'>
